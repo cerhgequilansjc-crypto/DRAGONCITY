@@ -17,28 +17,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
- <a class="nav-link active" aria-current="page" href="#">Home</a>
+ <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ABOUT</a>
+          <a class="nav-link" href="about.html">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">DRAGONS</a>
+          <a class="nav-link" href="dragons.html">DRAGONS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">HABITATS</a>
+          <a class="nav-link" href="Habitats.html">HABITATS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">BUILDING</a>
+          <a class="nav-link" href="building.html">BUILDING</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">DECOR</a>
+          <a class="nav-link" href="decor.html">DECOR</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ORB</a>
+          <a class="nav-link" href="orb.html">ORB</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">GEMS</a>
+          <a class="nav-link" href="gems.html">GEMS</a>
         </li>
       </ul>
     </div>
