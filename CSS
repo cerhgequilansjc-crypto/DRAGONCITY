@@ -1,0 +1,12 @@
+body{
+background-color: goldenrod
+}
+li:hover{
+    background-color: red;
+    
+
+}
+li {
+    border: 3px solid black;
+    border-radius: 10px;
+}
