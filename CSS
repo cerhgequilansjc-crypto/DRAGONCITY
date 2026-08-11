@@ -1,22 +1,20 @@
 body{
     margin: 0;
-    background-color: #050505;
+    background-color: black;
     background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
-
-
 li {
 
-    border: 3px solid rgb(217, 214, 214);
-    border-radius: 10px;
+    border: 1px solid rgb(217, 214, 214);
+    border-radius: 30px;
 }
 
 .navbar {
-    background-color: #050505;
+    background-color: grey
   }
   .navbar .nav-link,
   .navbar .navbar-brand {
@@ -33,12 +31,14 @@ nav {
 nav a {
   position: relative;
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 10px;
 }
 
 li:hover{
-    background-color: red;}
+    background-color: red;
+}
+
 
 
     * {
@@ -50,21 +50,21 @@ li:hover{
 .container {
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
 }
 
 .card {
-
-    background: rgb(184, 181, 181);
-    width: 300px;
-    height: 600px;
-    margin: 12px;
+    background: grey;
+    width: 100px;
+    height: 680px;
+    margin: 8px;
 }
 .card-image {
     background-color: aqua;
-    height: 200px;
-    margin-bottom: 8px;
+    height: 180px;
+    margin-bottom: 53px;
     background-size: cover;
-    border-radius: 15px 15x 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .car-1 {
@@ -76,8 +76,38 @@ li:hover{
 }   
 
 .car-3 {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh-DVTHKQnU9pbRtUnYUBr_ZBKKK0BbLhFtNNOVyGmda2DMaKb);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu3qbTE9VpmXyohOZUMfIPL8M4fT0JGnkXjT0UCd65g&s=10);
 }   
 .car-4 {
     background-image: url(https://images.ctfassets.net/7qho9llfhoio/2ul9ZsAnbjTDpQDheUK9TF/673e9d0adb441eae842a3e7fcd86cbae/1198422578_Website_Asset_4_Battle_2.jpg?w=1920&h=&fm=avif&q=75);
 }   
+
+.card a{
+    background-color: black;
+    color: white;
+    padding: 15px 15px;
+    display: block;    
+    text-align: center;
+    margin: 10px 40px;
+}
+.card:hover {
+
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.06);
+    transition: all 1s ease;
+} 
+.card {
+    width: 400px;
+    padding: 3px;
+    border: 6px solid goldenrod;
+    border-radius: 10px; 
+}
+li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 2px 30px;
+  text-decoration: none;
+}
