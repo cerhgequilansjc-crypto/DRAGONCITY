@@ -1,72 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRAGON CITY</title>
-     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-black">
-  <div class="container-fluid">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png" alt="Trulli" width="50" height="30">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <nav class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">𝑯𝑶𝑴𝑬</a>
+<title>Dragon City</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    background-color: rgb(168, 162, 162);
+    background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+
+    background: rgba(13, 14, 15, 0.92);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(89, 108, 110, 0.753);
+}
+
+.logo {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+
+    width: 65px;
+    height: 50px;
+
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+
+    min-width: 120px;
+    padding: 12px 20px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: linear-gradient(
+        135deg,
+        #386770,
+        #324e96
+    );
+
+    border-color: #fff;
+
+    box-shadow:
+        0 0 15px #25cfff,
+        inset 0 0 10px rgba(255,255,255,0.3);
+
+    transform: translateY(-2px);
+}   
+/* =========================
+   FOOTER ITO YUNG SA BABA YUNG MAY NAKAGALAGAY NA GROUP
+========================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #162f47;
+
+    color: #7193a3;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+</style>
+</head>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <!-- Replace with your Dragon City logo -->
+    <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
+        alt="Dragon City"
+    >
+
+    <ul class="nav-menu">
+
+        <li>
+            <a href="index.html">HOME</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">𝑨𝑩𝑶𝑼𝑻</a>
+
+        <li>
+            <a href="#">ABOUT</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dragons.html">𝘿𝙍𝘼𝙂𝙊𝙉𝙎</a>
+
+        <li>
+            <a href="Dragons.html">DRAGONS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Habitats.html">𝙃𝘼𝘽𝙄𝙏𝘼𝙏𝙎</a>
+
+        <li>
+            <a href="#">HABITATS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="building.html">𝘽𝙐𝙄𝙇𝘿𝙄𝙉𝙂</a>
+
+        <li>
+            <a href="#">BUILDING</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="decor.html">𝘿𝙀𝘾𝙊𝙍</a>
+
+        <li>
+            <a href="#">DECOR</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="orb.html">𝙊𝙍𝘽</a>
+
+        <li>
+            <a href="#">ORB</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="gems.html">𝙂𝙀𝙈𝙎</a>
+
+        <li>
+            <a href="#">GEMS</a>
         </li>
-      </ul>
-    </div>
-  </div>
+
+    </ul>
+
 </nav>
-    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t1.15752-9/768397571_1728989368415530_2781523585885273955_n.jpg?stp=dst-jpg_tt6&cstp=mx1376x768&ctp=s1376x768&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE-iBbKlrBhjgQOooUKEOTNyRs5W_zooE3JGzlb_OigTQ-_d_rl9ABWVRwlsYIpUS4A3nu3v0RpaGYS-3R9dOnL&_nc_ohc=5X5_qOZXBq8Q7kNvwEdV9aa&_nc_oc=AdrRF8V0Q_zwaZnKOCnvQT6iwj0CliJ8LifAUadGOJZx6OVqDng-fJmykn6Fgz7BK9w&_nc_zt=23&_nc_ht=scontent.fmnl17-2.fna&_nc_ss=7b2a8&oh=03_Q7cD6AENiMzL0ktWEhdv-G763PFc0AC8ZB2Ctf9_2jch9G4cWA&oe=6AA103F4" class="d-block w-100" alt="...">
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+        }
+
+        /* HOME CAROUSEL */
+        .carousel {
+            width: 100%;
+            height: 500px;
+            position: fixed;
+            overflow: fixed;
+        }
+
+        .slides {
+            display: flex;
+            width: 800%;
+            height: 100%;
+            animation: slide 32s infinite;
+        }
+
+        .slides img {
+            width: 12.5%;
+            height: 200%;
+            object-fit: cover;
+        }
+
+        /* AUTOMATIC SLIDE */
+        @keyframes slide {
+
+            0%   { transform: translateX(0); }
+            10%  { transform: translateX(0); }
+
+            12%  { transform: translateX(-12.5%); }
+            22%  { transform: translateX(-12.5%); }
+
+            24%  { transform: translateX(-25%); }
+            34%  { transform: translateX(-25%); }
+
+            36%  { transform: translateX(-37.5%); }
+            46%  { transform: translateX(-37.5%); }
+
+            48%  { transform: translateX(-50%); }
+            58%  { transform: translateX(-50%); }
+
+            60%  { transform: translateX(-62.5%); }
+            70%  { transform: translateX(-62.5%); }
+
+            72%  { transform: translateX(-75%); }
+            82%  { transform: translateX(-75%); }
+
+            84%  { transform: translateX(0); }
+            100% { transform: translateX(0); }
+        }
+
+        /* TITLE */
+        .title {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            color: white;
+            text-align: center;
+
+            text-shadow: 3px 5px 8px black;
+        }
+
+        .title h1 {
+            font-size: 50px;
+        }
+
+        .title p {
+            font-size: 18px;
+        }
+
+        /* BUTTON */
+        .button {
+            margin-top: 20px;
+
+            display: inline-block;
+
+            padding: 12px 30px;
+
+            background: #08bce8;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 25px;
+        }
+
+        .button:hover {
+            background: #087fc4;
+        }
+
+        @media (max-width: 800px) {
+            .carousel {
+                height: 350px;
+            }
+
+            .title h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HOME -->
+
+<div class="carousel">
+
+    <div class="slides">
+
+        <img src="https://scontent.fmnl4-7.fna.fbcdn.net/v/t1.15752-9/764517204_1365813642417572_1643254159708085904_n.jpg?stp=dst-jpg_tt6&cstp=mx1376x768&ctp=s1376x768&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGWS9UVaTgeZ8RBdHtm5mLEnik_1sAfliOeKT_WwB-WI3bZhblvepYvrgnixR7_OIVjzoGVC6tjFsksvUsQOZ2n&_nc_ohc=1LAf2fnb_y0Q7kNvwEMrL8o&_nc_oc=AdoQlZUbmF5KxFRqJAVkij5wPpupDagGV6smUznWbkUBTEwrEY-l5ZlWe21OzR3qd7a7KcTzvZBcXEUiRMSil-Ok&_nc_zt=23&_nc_ht=scontent.fmnl4-7.fna&_nc_ss=7b2a8&oh=03_Q7cD6AFzIjW8z65tawSZJdBlM12lI6ZlL8YCCOU1Is6QAdrv7Q&oe=6AA35B07">
+        <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.15752-9/768397571_1728989368415530_2781523585885273955_n.jpg?stp=dst-jpg_tt6&cstp=mx1376x768&ctp=s1376x768&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE-iBbKlrBhjgQOooUKEOTNyRs5W_zooE3JGzlb_OigTQ-_d_rl9ABWVRwlsYIpUS4A3nu3v0RpaGYS-3R9dOnL&_nc_ohc=5X5_qOZXBq8Q7kNvwEx2SSY&_nc_oc=AdrRAAhrjU4eKQu1i72Je_lcVvs0U0Ya0wMp94FYP11dN79EqmFH7DCqEHnxq0HkwddQEWycBWBBUxcpGlSGRno1&_nc_zt=23&_nc_ht=scontent.fmnl4-6.fna&_nc_ss=7b2a8&oh=03_Q7cD6AGJUYisqBnqJ8mGdhZDgwZVNKtl9Hr-lCeyy9hgDBlvBA&oe=6AA36EB4">
+        <img src="home3.jpg">
+        <img src="home4.jpg">
+        <img src="home5.jpg">
+        <img src="home6.jpg">
+        <img src="home7.jpg">
+        <img src="home8.jpg">
+
     </div>
-    <div class="carousel-item">
-      <img src="https://scontent.fmnl17-7.fna.fbcdn.net/v/t1.15752-9/765957695_1047159918228729_4748598267161344911_n.jpg?stp=dst-jpg_tt6&cstp=mx1376x768&ctp=s1376x768&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeF-nlQvQn_i-tQUSAaIj8QV1CjEkQiYQB3UKMSRCJhAHS1iS43mFdke7h7jkGvkOAIKtOxgxt3N0T0Bd1L-AdoC&_nc_ohc=awo4wMDPZ4UQ7kNvwE9EPgk&_nc_oc=Adod77zweZ37UknhtBakG9qpq3V8bZZ_6NUjA2K9F2JfvQu00MIOsuJ0fxcWrJbzYYE&_nc_zt=23&_nc_ht=scontent.fmnl17-7.fna&_nc_ss=7b2a8&oh=03_Q7cD6AFuW7ZcYuFEX9hFxdxGKBCJ-fck5NnO7M6q3MNO_KPSNg&oe=6AA12087" class="d-block w-100" alt="...">
+
+    <div class="title">
+
+        <h1>DRAGON CITY</h1>
+
+        <p>Welcome to the Dragon World</p>
+
+        <a href="#dragons" class="button">
+            EXPLORE DRAGONS
+        </a>
+
     </div>
-    <div class="carousel-item">
-      <img src="https://scontent.fmnl17-6.fna.fbcdn.net/v/t1.15752-9/764517204_1365813642417572_1643254159708085904_n.jpg?stp=dst-jpg_tt6&cstp=mx1376x768&ctp=s1376x768&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGWS9UVaTgeZ8RBdHtm5mLEnik_1sAfliOeKT_WwB-WI3bZhblvepYvrgnixR7_OIVjzoGVC6tjFsksvUsQOZ2n&_nc_ohc=KisWYzF66-sQ7kNvwHVHvYz&_nc_oc=Adq3JVCUU_QKMGrvb_hJK-Ng56yEIIbwLLmBCQvNc2Y7lG9C5MQBfDMhHhtm0dxwZJg&_nc_zt=23&_nc_ht=scontent.fmnl17-6.fna&_nc_ss=7b2a8&oh=03_Q7cD6AFxjndarBv1-HcqEJcc9wVXtqRBMDzPIbO5QQ9aQILCHA&oe=6AA0F047" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </section>
+
+</section>
+<footer>
+    DRAGON CITY CREATED BY GROUP 2
+</footer>
 </body>
 </html>
