@@ -1,100 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRAGON CITY</title>
-     <link rel="stylesheet" href="style.css">
+    <title>Mobile Legends: Bang Bang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            padding: 30px;
+            line-height: 1.7;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        .info-card {
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-details {
+            padding: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg bg-black">
-  <div class="container-fluid">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png" alt="Trulli" width="50" height="30">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <nav class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">𝑯𝑶𝑴𝑬</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">𝑨𝑩𝑶𝑼𝑻</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dragons.html">𝘿𝙍𝘼𝙂𝙊𝙉𝙎</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Habitats.html">𝙃𝘼𝘽𝙄𝙏𝘼𝙏𝙎</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="building.html">𝘽𝙐𝙄𝙇𝘿𝙄𝙉𝙂</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="decor.html">𝘿𝙀𝘾𝙊𝙍</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="orb.html">𝙊𝙍𝘽</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="gems.html">𝙂𝙀𝙈𝙎</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<br>
-<br>
-<br>
-<br>
-<br>
-   <body>
-        <section class="container">
-    <div class="card">
-        <div class="card-image car-1"></div>
-        <h3>𝘽𝙐𝙄𝙇𝘿 𝘼 𝘾𝙄𝙏𝙔
-            𝙍𝙐𝙇𝙀 𝙏𝙃𝙀 𝘿𝙍𝘼𝙂𝙊𝙉𝙑𝙀𝙍𝙎𝙀</h3>
-            <br>
-            <p> ᴇxᴘᴀɴᴅ ʏᴏᴜʀ ɪꜱʟᴀɴᴅꜱ ᴛᴏ ᴛʀᴀɴꜱꜰᴏʀᴍ ʏᴏᴜʀ ʜᴜᴍʙʟᴇ ᴠɪʟʟᴀɢᴇ ɪɴᴛᴏ ᴀ ʀᴏᴀʀɪɴɢ  ᴅʀᴀɢᴏɴᴠᴇʀꜱᴇ  ᴍᴇɢᴀʟᴏᴘᴏʟɪꜱ  ᴡʜᴇʀᴇ  ʏᴏᴜ ᴄᴀɴ ᴜɴᴄᴏᴠᴇʀ  ᴄɪᴛʏ ꜱᴇᴄʀᴇᴛꜱ ᴀɴᴅ ᴡᴀᴛᴄʜ ʏᴏᴜʀ ʙᴇᴀꜱᴛꜱ ᴘʀᴏꜱᴘᴇʀ..</p>
-            <p> </p>
-    <br>
-    <br>
-            <a  href="">𝐌𝐎𝐑𝐄 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍</a>
-    </div>
-    <div class="card">
-        <div class="card-image car-2"></div>
+    <div class="container">
+        <!-- Left Side: Text Content -->
+        <div class="text-content">
+            <p><strong>Mobile Legends: Bang Bang</strong>, commonly known as ML or MLBB, is a fast-paced mobile multiplayer online battle arena (MOBA) game developed and published by Moonton, a subsidiary of ByteDance. It was first released publicly in Brazil on 22 July 2016.</p>
 
-        <h2>𝙁𝙀𝙀𝘿, 𝙂𝙍𝙊𝙒, 𝘼𝙉𝘿 𝙒𝙄𝙉!</h2>
-        <p>ᴛʀᴀɪɴ ᴀɴᴅ ᴇᴠᴏʟᴠᴇ ʏᴏᴜʀ ᴅʀᴀɢᴏɴꜱ ɪɴᴛᴏ ᴘᴏᴡᴇʀꜰᴜʟ ʙᴇᴀꜱᴛꜱ ʙʏ ꜰᴇᴇᴅɪɴɢ, ʟᴇᴠᴇʟɪɴɢ, ᴀɴᴅ ᴇᴍᴘᴏᴡᴇʀɪɴɢ ᴛʜᴇᴍ ᴡɪᴛʜ ᴘᴇʀᴋꜱ ᴀɴᴅ ᴄᴜꜱᴛᴏᴍ ꜱᴋɪʟʟ ꜱᴋɪɴꜱ ᴛᴏ ᴇɴꜱᴜʀᴇ ʏᴏᴜʀ ʀᴏꜱᴛᴇʀ ɪꜱ ʀᴇᴀᴅʏ ꜰᴏʀ ꜱᴜʀᴠɪᴠᴀʟ.</P>
-   <br>
-   <br>
-   <br>
-        <a  href="">𝐌𝐎𝐑𝐄 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍</a>
-   
-    </div>
-    <div class="card">
-        <div class="card-image car-3"></div>
-        <h2>𝘾𝙊𝙇𝙇𝙀𝘾𝙏 1000+ 𝘿𝙍𝘼𝙂𝙊𝙉𝙎!</h2>
-        <p>ᴅʀᴀɢᴏɴ ᴄɪᴛʏ ɪꜱ ᴀ ᴍᴀꜱꜱɪᴠᴇ ᴄᴏʟʟᴇᴄᴛɪɴɢ ɢᴀᴍᴇ ᴡʜᴇʀᴇ ʏᴏᴜ ᴄᴀᴘᴛᴜʀᴇ, ʙʀᴇᴇᴅ, ᴀɴᴅ ᴍᴀꜱᴛᴇʀ ᴅɪᴠᴇʀꜱᴇ, ᴇʟᴇᴍᴇɴᴛᴀʟ ᴅʀᴀɢᴏɴꜱ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ᴛʜᴇ ᴅʀᴀɢᴏɴ ʙᴏᴏᴋ ᴀɴᴅ ʙᴇᴄᴏᴍᴇ ᴛʜᴇ ᴜʟᴛɪᴍᴀᴛᴇ ᴄᴏʟʟᴇᴄᴛᴏʀ..</p>
-<br>
-<br>
-<br>
-<a  href="">𝐌𝐎𝐑𝐄 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍</a>
+            <p>Since launch, it has become one of the most played mobile games globally, especially across Southeast Asia. It has exceeded 1 billion downloads and reached 100 million monthly active players. By 2021, the game had earned over US$1 billion in gross revenue, with nearly half coming from outside Asia—proving its worldwide appeal.</p>
+
+            <p>Matches feature two teams of five players fighting in real time across three lanes. Matchmaking takes seconds, and full matches last roughly 10 minutes. Victory depends entirely on skill, teamwork, and strategy—there is no pay-to-win advantage.</p>
+
+            <p>Its success also built a thriving esports scene, with the Mobile Legends Professional League (MPL) running official competitions across Southeast Asia, Latin America, and other regions.</p>
+        </div>
+
+        <!-- Right Side: Info Card -->
+        <div class="info-card">
+            <div class="card-header">Mobile Legends: Bang Bang</div>
+            <img src="mlbb-hero.jpg" alt="Mobile Legends Hero" class="card-image">
+            <div class="card-details">
+                <div class="detail-row">
+                    <span class="detail-label">Release Date:</span>
+                    <span>22 July 2016 (Brazil)</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Developer:</span>
+                    <span>Moonton</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Genre:</span>
+                    <span>Multiplayer Online Battle Arena</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Mode:</span>
+                    <span>5v5 Multiplayer</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-        <div class="card-image car-4"></div>
-        <h2> 𝙎𝙏𝙍𝘼𝙏𝙀𝙂𝙄𝙕𝙀 & 𝘾𝙊𝙉𝙌𝙐𝙀𝙍</h2>
-        <p>ᴅᴇᴘʟᴏʏ ʏᴏᴜʀ ᴅʀᴀɢᴏɴꜱ ɪɴ ʟᴇᴀɢᴜᴇꜱ, ᴅᴀɪʟʏ Qᴜᴇꜱᴛꜱ, ᴀɴᴅ ᴀʀᴇɴᴀꜱ ᴜꜱɪɴɢ ꜱᴛʀᴀᴛᴇɢɪᴄ ʙᴀᴛᴛʟᴇꜰɪᴇʟᴅ ᴛᴀᴄᴛɪᴄꜱ ᴀɴᴅ ᴜɴɪQᴜᴇ ꜱᴋɪʟʟꜱ ᴛᴏ ᴇxᴘᴏꜱᴇ ᴇɴᴇᴍʏ ᴡᴇᴀᴋɴᴇꜱꜱᴇꜱ ꜰᴏʀ ʜᴜɢᴇ ʀᴇᴡᴀʀᴅꜱ..</p>
-       <br>
-       <br>
-       <br>
-        <a  href="">𝐌𝐎𝐑𝐄 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍</a>
-    </div>
-    </body>
-
-    <style>
+</body>
+</html>
  
