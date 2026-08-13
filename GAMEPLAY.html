@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play - Tactical Board Layout</title>
+  <style>
+    /* 1. Global Reset & Theme Setup */
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ebecf0;
+            /* Using the uploaded background image asset */
+            background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 140px; /* Space so content clears the fixed header */
+            padding-bottom: 40px;
+        }
+        /* ==========================================
+           NAVIGATION BAR (Your Fixed Template)
+        ========================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background: rgba(25, 28, 31, 0.92);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(89, 108, 110, 0.753);
+        }
+
+        .logo {
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            width: 65px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            min-width: 120px;
+            padding: 10px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+         .nav-menu a:hover {
+            background: linear-gradient(135deg, #00d5ff, #39878ad3);
+            border-color: #c2bfbf;
+            box-shadow: 0 0 20px #cacdce, inset 0 0 10px rgba(150, 1, 1, 0.3);
+            transform: translateY(-2px);
+        }  
+    .game-container {
+      display: flex;
+      max-width: 1100px;
+      width: 100%;
+      gap: 4rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .content-side {
+      flex: 1;
+      max-width: 450px;
+    }
+
+    .title {
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #f3e9dc;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .title span {
+      color: #0b0647; /* Gold accent color from the image */
+    }
+
+    .description {
+      font-size: 1.1rem;
+      line-height: 1;
+      color: #050505;
+      margin-bottom: 2rem;
+    }
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #edfc1be3;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      transition: transform 0.2s ease, color 0.2s ease;
+       text-shadow: 0px -3px 1px black;
+    }
+
+    .cta-link:hover {
+      color: #da0101;
+      transform: translateX(5px);
+    }
+
+    .arrow {
+      font-size: 1.2rem;
+    }
+
+    /* 5. Right Side Styling (Video Wrapper & Screen) */
+    .video-side {
+      flex: 1.2;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 160%;
+      aspect-ratio: 20 / 10;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 30px 40px rgba(27, 23, 23, 0.6), 
+                  0 0 0 5px rgba(15, 15, 15, 0.05); /* Clean border glow */
+    }
+
+    .video-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1.0) contrast(1.1);
+      transition: transform 0.5s ease;
+    }
+
+    .video-wrapper:hover .video-preview {
+      transform: scale(1.03); /* Subtle zoom effect on hover */
+    }
+
+    /* 7. Mobile Layout Responsiveness */
+    @media (max-width: 768px) {
+      .game-container {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+      }
+      
+      .title {
+        font-size: 3.0rem;
+      }
+      
+      .cta-link {
+        justify-content: center;
+      }
+    }
+    .content-side {
+      flex: 1;
+      max-width: 700px;
+    }
+
+</style>
+<nav class="navbar">
+
+    <!-- Replace with your Dragon City logo -->
+    <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
+        alt="Dragon City"
+    >
+
+    <ul class="nav-menu">
+        
+        <li>
+            <a href="index.html">HOME</a>
+        </li>
+        <li>
+            <a href="about.html">ABOUT</a>
+        </li>
+        <li>
+            <a href="Gameplay.html">GAMEPLAY</a>
+        </li>
+        <li>
+            <a href="Dragons.html">DRAGONS</a>
+        </li>
+        <li>
+            <a href="habitats.html">HABITATS</a>
+        </li>
+        <li>
+            <a href="building.html">BUILDING</a>
+        </li>
+        <li>
+            <a href="#">DECOR</a>
+        </li>
+
+
+    </ul>
+
+</nav>
+
+  <main class="game-container">
+    
+    <!-- Left Column: Content Section -->
+    <section class="content-side">
+      <h1 class="title">HOW TO<br><span>PLAY?</span></h1>
+      <h5 class="description">
+        ᴅʀᴀɢᴏɴ ᴄɪᴛʏ ɪꜱ ᴀɴ ɪᴅʟᴇ ɢᴀᴍᴇ ᴡʜᴇʀᴇ ᴛʜᴇ ᴘʟᴀʏᴇʀ ʀᴀɪꜱᴇꜱ ᴅʀᴀɢᴏɴꜱ ᴀɴᴅ ʙᴜɪʟᴅꜱ ᴀ ꜰʟᴏᴀᴛɪɴɢ ᴄɪᴛʏ ꜰᴏʀ ᴛʜᴇᴍ. ᴛʜᴇ ɢᴀᴍᴇ ꜰᴇᴀᴛᴜʀᴇꜱ ᴅʀᴀɢᴏɴꜱ ᴘʀᴏᴅᴜᴄɪɴɢ ɢᴏʟᴅ ᴛᴏ ʙᴜʏ ᴜᴘɢʀᴀᴅɪɴɢ ʙᴜɪʟᴅɪɴɢꜱ ᴀɴᴅ ʜᴀʙɪᴛᴀᴛꜱ ꜰᴏʀ ᴛʜᴇ ᴄʀᴇᴀᴛᴜʀᴇꜱ. ꜰᴀʀᴍꜱ ᴘʀᴏᴅᴜᴄᴇ ꜰᴏᴏᴅ ᴛᴏ ʟᴇᴠᴇʟ ᴜᴘ ᴛʜᴇ ᴅʀᴀɢᴏɴꜱ, ɪɴᴄʀᴇᴀꜱɪɴɢ ᴛʜᴇɪʀ ᴘᴏᴡᴇʀ ᴀɴᴅ ᴀᴅᴅɪɴɢ ᴍᴏʀᴇ ɢᴏʟᴅ. ᴛᴡᴏ ʟᴇᴠᴇʟ 4+ ᴅʀᴀɢᴏɴꜱ ᴄᴀɴ ʙᴇ ʙʀᴇᴅ ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ʜʏʙʀɪᴅ ᴡɪᴛʜ ʀᴀɴᴅᴏᴍ ᴇʟᴇᴍᴇɴᴛꜱ. ᴛʜᴇ ᴘʟᴀʏᴇʀ ᴄᴀɴ ᴀʟꜱᴏ ʙᴀᴛᴛʟᴇ ᴏᴛʜᴇʀ ᴘʟᴀʏᴇʀꜱ ɪɴ ᴛʜᴇ ʟᴇᴀɢᴜᴇ ʙᴀᴛᴛʟᴇ ᴍᴏᴅᴇ ᴛᴏ ʀᴇᴄᴇɪᴠᴇ ɢᴇᴍꜱ, ꜰᴏᴏᴅ, ᴀɴᴅ ᴏᴛʜᴇʀ ʀᴇᴡᴀʀᴅꜱ. ᴛʜᴇ ɢᴀᴍᴇ ᴏꜰꜰᴇʀꜱ ᴇᴠᴇɴᴛꜱ ᴡʜᴇʀᴇ ᴛʜᴇ ᴘʟᴀʏᴇʀ ᴄᴀɴ ᴏʙᴛᴀɪɴ ᴇxᴄʟᴜꜱɪᴠᴇ ᴅʀᴀɢᴏɴꜱ.
+<br>
+<br>
+        ᴀᴛ ʟᴇᴠᴇʟ 27, ᴛʜᴇ ᴘʟᴀʏᴇʀ ᴜɴʟᴏᴄᴋꜱ ᴛʜᴇ ᴀɴᴄɪᴇɴᴛ ᴡᴏʀʟᴅ , ᴡʜᴇʀᴇ ᴛʜᴇʏ ᴄᴀɴ ʙᴜʏ ᴄʀʏꜱᴛᴀʟꜱ ᴡɪᴛʜ ɢᴏʟᴅ ᴛᴏ ꜱᴜᴍᴍᴏɴ ᴀɴᴅ ᴇᴠᴏʟᴠᴇ ᴀɴᴄɪᴇɴᴛ ᴅʀᴀɢᴏɴꜱ. ᴛʜᴇ ᴄʀᴇᴀᴛᴜʀᴇꜱ ᴘʀᴏᴅᴜᴄᴇ ᴘʟᴀᴛɪɴᴜᴍ, ᴡʜɪᴄʜ ᴄᴀɴ ʙᴇ ᴇxᴄʜᴀɴɢᴇᴅ ꜰᴏʀ ʙᴇᴛᴛᴇʀ ᴄʀʏꜱᴛᴀʟꜱ. ᴇᴀᴄʜ ᴀɴᴄɪᴇɴᴛ ᴅʀᴀɢᴏɴ ʜᴀꜱ ᴏɴᴇ ᴜɴɪQᴜᴇ ᴇʟᴇᴍᴇɴᴛ ᴀɴᴅ ᴏɴᴇ ʀᴇɢᴜʟᴀʀ ᴇʟᴇᴍᴇɴᴛ; ʜᴏᴡᴇᴠᴇʀ, ᴛʜᴇʏ ᴄᴀɴɴᴏᴛ ʙᴇ ᴜꜱᴇᴅ ᴛᴏ ꜰɪɢʜᴛ ᴏʀ ᴘᴀʀᴛɪᴄɪᴘᴀᴛᴇ ɪɴ ᴀɴʏ ᴍᴏᴅᴇꜱ ᴏᴜᴛꜱɪᴅᴇ ᴛʜᴇ ᴀɴᴄɪᴇɴᴛ ᴡᴏʀʟᴅ.
+<br>
+<br>
+        ᴛʜᴇ ɢᴀᴍᴇ ꜰᴇᴀᴛᴜʀᴇꜱ 22 ᴇʟᴇᴍᴇɴᴛꜱ, ᴀɴᴅ ᴅʀᴀɢᴏɴꜱ ᴄᴀɴ ʜᴀᴠᴇ ᴜᴘ ᴛᴏ ꜰᴏᴜʀ ᴏꜰ ᴛʜᴇᴍ. ꜱᴇᴠᴇɴ ʀᴀʀɪᴛʏ ᴄᴀᴛᴇɢᴏʀɪᴇꜱ ᴇxɪꜱᴛ, ᴀɴᴅ ᴛʜᴇʏ ᴀʀᴇ ᴄᴏᴍᴍᴏɴ, ʀᴀʀᴇ, ᴠᴇʀʏ ʀᴀʀᴇ, ᴇᴘɪᴄ, ʟᴇɢᴇɴᴅᴀʀʏ, ʜᴇʀᴏɪᴄ, ᴀɴᴅ ᴍʏᴛʜɪᴄᴀʟ. ᴛʜᴇ ʜᴇʀᴏɪᴄ ᴛʏᴘᴇ ᴡᴀꜱ ɪɴᴛʀᴏᴅᴜᴄᴇᴅ ɪɴ 2016, ᴡʜɪʟᴇ ᴛʜᴇ ᴍʏᴛʜɪᴄᴀʟ ʀᴀʀɪᴛʏ ᴡᴀꜱ ᴀᴅᴅᴇᴅ ɪɴ 2024.</ʜ5>
+      <a href="#" class="cta-link">
+        <br>
+        <br>
+        <br>
+        <span class="arrow">➔</span> CHECK THE GAME FEATURES
+      </a>
+    </section>
+
+    <!-- Right Column: Video Preview Section -->
+    <section class="video-side">
+      <div class="video-wrapper">
+        <!-- Placeholder Image representing the game board UI -->
+        <img src="https://static.wikia.nocookie.net/dragoncity/images/4/43/Ephixia_Animation.gif/revision/latest?cb=20210408051246" alt="Game Board Preview" class="video-preview">
+        
+        <!-- Interactive Play Button Overlay -->
+        <button class="play-btn" aria-label="Play Tutorial">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+     
+  </main>
+
+</body>
+</html>
