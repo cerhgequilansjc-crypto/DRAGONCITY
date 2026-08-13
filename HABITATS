@@ -17,7 +17,6 @@
 body{
       min-height: 100vh;
             background-color: #0b0e14;
-            /* Using the uploaded background image asset */
             background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
             background-position: center center;
             background-repeat: no-repeat;
@@ -26,7 +25,7 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 140px; /* Space so content clears the fixed header */
+            padding-top: 140px;
             padding-bottom: 40px;
 }
         /* ==========================================
@@ -121,10 +120,6 @@ body{
         </li>
 
         <li>
-            <a href="#">BUILDING</a>
-        </li>
-
-        <li>
             <a href="#">DECOR</a>
         </li>
 
@@ -141,7 +136,7 @@ body{
 </nav>
 <style>
 .habitats {
-    padding: 200px;
+    padding: 100px;
     text-align: center;
 }
 
@@ -150,38 +145,39 @@ h1 {
 }
 
 .slider {
-    width: 90%;
+    width: 70%;
     margin: auto;
     overflow: hidden;
 }
 
 .cards {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     transition: 0.27s;
+
 }
 
 .card {
-    min-width: 30%;
+    min-width: 25%;
     background: #fbfbfc;
     border-radius: 15px;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
 }
 
 .card img {
-    width: 75%;
-    height: 300px;
+    width: 60%;
+    height: 290px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
 }
 
 .card h2 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 button {
     padding: 20px 30px;
-    margin: 20px 5px;
+    margin: 20px 10px;
     border: 0;
     border-radius: 20px;
     cursor: pointer;
@@ -202,15 +198,15 @@ button {
     margin-top: 20px;
 }
 
-@media(max-width: 800px) {
+@media(max-width: 700px) {
     .card {
-        min-width: 48%;
+        min-width: 45%;
     }
 }
 
 @media(max-width: 500px) {
     .card {
-        min-width: 100%;
+        min-width: 30%;
     }
 }
 </style>
@@ -255,8 +251,8 @@ button {
 
 <div class="card">
 <img src="https://static.wikia.nocookie.net/dragoncity/images/c/c8/Electric_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154225">
-<h2>⚡ Electric Habitats</h2>
-<button class="select" onclick="selectHabitat('Volcano Habitat')">SELECT</button>
+<h2>⚡ Electric Habitat</h2>
+<button class="select" onclick="selectHabitat('Electric Habitat')">SELECT</button>
 </div>
 
 <div class="card">
@@ -273,20 +269,67 @@ button {
 
 <div class="card">
 <img src="https://static.wikia.nocookie.net/dragoncity/images/f/fa/Dark_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209153529">
-<h2>🏔️ Mountain Habitat</h2>
-<button class="select" onclick="selectHabitat('Mountain Habitat')">SELECT</button>
+<h2>🌙 Dark Habitat</h2>
+<button class="select" onclick="selectHabitat('Dark Habitat')">SELECT</button>
 </div>
 
 <div class="card">
-<img src="habitat9.jpg">
-<h2>🔥 Lava Habitat</h2>
-<button class="select" onclick="selectHabitat('Lava Habitat')">SELECT</button>
+<img src="https://static.wikia.nocookie.net/dragoncity/images/4/4a/Light_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154210">
+<h2>☀️ Light Habitat</h2>
+<button class="select" onclick="selectHabitat('Light Habitat')">SELECT</button>
 </div>
 
 <div class="card">
-<img src="habitat10.jpg">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/e/ef/War_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154241">
+<h2>⚔️ War Habitat</h2>
+<button class="select" onclick="selectHabitat('War Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/8/81/Pure_Habitat.png/revision/latest/scale-to-width-down/150?cb=20130706085212">
+<h2>⚜️ Pure Habitat</h2>
+<button class="select" onclick="selectHabitat('Pure Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/2/20/Legend_Habitat.png/revision/latest/scale-to-width-down/150?cb=20130726033649">
+<h2>♾️ Legend Habitat</h2>
+<button class="select" onclick="selectHabitat('Legend  Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/3/31/Beauty_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417201741">
+<h2>💄 Beauty Habitat</h2>
+<button class="select" onclick="selectHabitat('Beauty Habitat')">SELECT</button>
+</div>
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/0/02/Magic_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417201811">
 <h2>✨ Magic Habitat</h2>
 <button class="select" onclick="selectHabitat('Magic Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/a/a3/Chaos_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417201959">
+<h2>☯️ Chaos Habitat</h2>
+<button class="select" onclick="selectHabitat('Chaos Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5d/Soul_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417202122">
+<h2>👻 Soul Habitat</h2>
+<button class="select" onclick="selectHabitat('Soul Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/7/76/Primal_Habitat.png/revision/latest/scale-to-width-down/150?cb=20180515094435">
+<h2>☢️ Primal Habitat</h2>
+<button class="select" onclick="selectHabitat('Primal Habitat')">SELECT</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/1/16/Wind_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220124033736">
+<h2>💨 Wind Habitat</h2>
+<button class="select" onclick="selectHabitat('Wind Habitat')">SELECT</button>
 </div>
 
 </div>
@@ -303,23 +346,23 @@ let position = 0;
 function next() {
     position += 1;
 
-    if(position > 10) {
-        position = 0;
+    if(position > 11) {
+        position = 10.3 ;
     }
 
     document.getElementById("cards").style.transform =
-    "translateX(-" + position * 25 + "%)";
+    "translateX(-" + position * 38 + "%)";
 }
 
 function prev() {
     position -= 1;
 
     if(position < 0) {
-        position = 6;
+        position = 10.3;
     }
 
     document.getElementById("cards").style.transform =
-    "translateX(-" + position * 30 + "%)";
+    "translateX(-" + position * 38 + "%)";
 }
 
 function selectHabitat(name) {
