@@ -1,688 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dragon City</title>
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body{
-    margin: 0;
-    background-color: rgb(168, 162, 162);
-    background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-/* =========================
-   NAVIGATION BAR
-========================= */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 72px;
-
-    background: rgba(25, 28, 31, 0.92);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 1000;
-
-    border-bottom: 1px solid rgba(89, 108, 110, 0.753);
-}
-
-.logo {
-    position: absolute;
-    left: 15px;
-    top: 10px;
-
-    width: 65px;
-    height: 50px;
-
-    object-fit: contain;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 4px;
-    list-style: none;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-
-    min-width: 120px;
-    padding: 12px 20px;
-
-    text-align: center;
-
-    border: 1px solid rgba(255,255,255,0.8);
-    border-radius: 30px;
-
-    font-weight: bold;
-    font-style: italic;
-    letter-spacing: 1px;
-
-    transition: 0.3s ease;
-}
-
-.nav-menu a:hover {
-    background: linear-gradient(
-        135deg,
-        #386770,
-        #324e96
-    );
-
-    border-color: #fff;
-
-    box-shadow:
-        0 0 15px #25cfff,
-        inset 0 0 10px rgba(255,255,255,0.3);
-
-    transform: translateY(-2px);
-}   
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-
-    padding-top: 72px;
-
-    background:
-        linear-gradient(
-            rgba(23, 49, 56, 0.733),
-            rgba(30, 60, 102, 0.918)
-        ),
-        url("dragon-bg.png");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            rgba(150,235,255,0.45),
-            transparent 35%
-        );
-
-    pointer-events: none;
-}
-
-.hero-title {
-    position: relative;
-
-    text-align: center;
-
-    margin-bottom: 30px;
-
-    text-shadow:
-        0 3px 5px #1ca5b8,
-        0 0 20px #00cfff;
-}
-
-.hero-title h1 {
-    font-size: clamp(38px, 5vw, 75px);
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-    color: white;
-}
-
-.hero-title p {
-    margin-top: 8px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 15px;
-
-    letter-spacing: 4px;
-
-    color: #bceeff;
-}
-
-.dragon-section {
-    position: relative;
-
-    width: 100%;
-
-    padding: 35px 50px 55px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            rgba(63, 122, 194, 0.75) 10%,
-            rgba(86, 129, 172, 0.98)
-        );
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    max-width: 1450px;
-
-    margin: 0 auto 20px;
-}
-
-.section-header h2 {
-    font-size: 30px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    text-shadow: 0 0 12px #11a3c7;
-}
-
-.section-header span {
-    font-family: Arial, sans-serif;
-
-    font-size: 13px;
-
-    color: #9bdff5;
-
-    letter-spacing: 1px;
-}
-
-/* =========================
-   SLIDER
-========================= */
-
-.slider-wrapper {
-    max-width: 1450px;
-
-    margin: auto;
-
-    position: relative;
-}
-
-.dragon-slider {
-    display: flex;
-
-    gap: 22px;
-
-    overflow-x: auto;
-
-    scroll-snap-type: x mandatory;
-
-    padding: 10px 5px 25px;
-
-    scrollbar-width: thin;
-
-    scrollbar-color: #28cfff #15212c;
-
-    scroll-behavior: smooth;
-}
-
-.dragon-slider::-webkit-scrollbar {
-    height: 8px;
-}
-
-.dragon-slider::-webkit-scrollbar-track {
-    background: #25609b;
-
-    border-radius: 20px;
-}
-
-.dragon-slider::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        90deg,
-        #00cfff,
-        #557aff
-    );
-
-    border-radius: 20px;
-}
-
-/* =========================
-   DRAGON CARD
-========================= */
-
-.dragon-card {
-    flex: 0 0 265px;
-
-    height: 390px;
-
-    scroll-snap-align: start;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            160deg,
-            rgba(15, 60, 90, 0.95),
-            rgba(4, 15, 28, 0.98)
-        );
-
-    border: 1px solid rgba(117, 221, 255, 0.5);
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,0.55),
-        inset 0 0 25px rgba(0,180,255,0.08);
-
-    transition:
-        transform 1.35s ease,
-        box-shadow 1.35s ease;
-}
-
-.dragon-card:hover {
-    transform: translateY(-12px) scale(1.025);
-
-    border-color: #70e8ff;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,0.8),
-        0 0 25px rgba(0,211,255,0.45);
-}
-
-/* =========================
-   DRAGON IMAGE
-========================= */
-
-.dragon-image {
-    height: 220px;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(49, 151, 173, 0.45),
-            transparent 65%
-        );
-}
-
-.dragon-image img {
-    width: 90%;
-    height: 100%;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(0 10px 12px rgba(0,0,0,0.7));
-
-    transition: 0.4s ease;
-}
-
-.dragon-card:hover .dragon-image img {
-    transform: scale(1.12) translateY(-5px);
-}
-
-/* =========================
-   ELEMENT BADGE ITO NAMAN YUNG MGA ELEMENT NG DRAGONS
-========================= */
-
-.elements {
-    position: absolute;
-
-    top: 12px;
-    left: 12px;
-
-    display: flex;
-
-    gap: 6px;
-}
-
-.element {
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    font-size: 18px;
-
-    background: rgba(0,0,0,0.65);
-
-    border: 1px solid rgba(255,255,255,0.5);
-
-    box-shadow: 0 0 10px rgba(0,200,255,0.5);
-}
-
-/* =========================
-   RARITY ITO NAMAN YUNG SA MGA GILID NG CARD
-========================= */
-
-.rarity {
-    position: absolute;
-
-    top: 15px;
-    right: 12px;
-
-    padding: 5px 10px;
-
-    border-radius: 15px;
-
-    background: rgba(0,0,0,0.65);
-
-    font-family: Arial, sans-serif;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    color: #ffe681;
-
-    border: 1px solid #ffe681;
-}
-
-/* =========================
-   CARD ITO NAMAN YUNG SA TEXT
-========================= */
-
-.card-info {
-    padding: 17px 18px;
-}
-
-.card-info h3 {
-    font-size: 24px;
-
-    margin-bottom: 5px;
-
-    text-shadow: 0 2px 4px #4dbef3bb;
-}
-
-.card-info p {
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
-    color: #a7d8e8;
-
-    line-height: 1.5;
-
-    min-height: 38px;
-}
-
-/* =========================
-   STATS
-========================= */
-
-.stats {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-top: 14px;
-
-    padding-top: 10px;
-
-    border-top: 1px solid rgba(42, 95, 99, 0.822);
-}
-
-.stat {
-    text-align: center;
-
-    font-family: Arial, sans-serif;
-}
-
-.stat strong {
-    display: block;
-
-    font-size: 15px;
-
-    color: white;
-}
-
-.stat small {
-    font-size: 9px;
-
-    color: #72cce8;
-
-    text-transform: uppercase;
-}
-
-/* =========================
-   SLIDER BUTTONS ITO NAMAN YUNG PINDUTAN
-========================= */
-
-.slider-buttons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 10px;
-}
-
-.slider-button {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-decoration: none;
-
-    color: white;
-
-    font-size: 22px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.5);
-
-    background: rgba(0,0,0,0.5);
-
-    transition: 0.3s;
-}
-
-.slider-button:hover {
-    background: #16bfe9;
-
-    box-shadow: 0 0 15px #16bfe9;
-}
-
-/* =========================
-   DRAGON CARD COLORS
-========================= */
-
-.fire {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,80,30,0.35),
-            transparent 65%
-        );
-}
-
-.water {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(0,180,255,0.45),
-            transparent 65%
-        );
-}
-
-.nature {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(60,220,100,0.35),
-            transparent 65%
-        );
-}
-
-.ice {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(130,230,255,0.45),
-            transparent 65%
-        );
-}
-
-.legend {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(180,90,255,0.45),
-            transparent 65%
-        );
-}
-
-/* =========================
-   FOOTER ITO YUNG SA BABA YUNG MAY NAKAGALAGAY NA GROUP
-========================= */
-
-footer {
-    padding: 30px;
-
-    text-align: center;
-
-    background: #0c1116;
-
-    color: #7193a3;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
-    letter-spacing: 1px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .navbar {
-        height: 65px;
-
-        justify-content: flex-start;
-
-        padding-left: 80px;
-
-        overflow-x: auto;
-    }
-
-    .logo {
-        width: 55px;
-        left: 12px;
-    }
-
-    .nav-menu {
-        gap: 5px;
-    }
-
-    .nav-menu a {
-        min-width: auto;
-
-        padding: 10px 14px;
-
-        font-size: 11px;
-    }
-
-    .hero {
-        background-attachment: scroll;
-    }
-
-    .dragon-section {
-        padding: 30px 15px;
-    }
-
-    .dragon-card {
-        flex-basis: 240px;
-    }
-
-}
-
-@media (max-width: 500px) {
-
-    .hero-title h1 {
-        font-size: 32px;
-    }
-
-    .hero-title p {
-        font-size: 10px;
-
-        letter-spacing: 2px;
-    }
-
-    .section-header h2 {
-        font-size: 20px;
-    }
-
-    .section-header span {
-        display: none;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon City Showcase</title>
+    <style>
+        /* ==========================================
+           BASE SETUP & THEMED BACKGROUND
+        ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #0b0e14;
+            /* Using the uploaded background image asset */
+            background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 140px; /* Space so content clears the fixed header */
+            padding-bottom: 40px;
+        }
+
+        /* ==========================================
+           NAVIGATION BAR (Your Fixed Template)
+        ========================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background: rgba(25, 28, 31, 0.92);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(89, 108, 110, 0.753);
+        }
+
+        .logo {
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            width: 65px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            min-width: 120px;
+            padding: 10px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .nav-menu a:hover {
+            background: linear-gradient(135deg, #2cc9e9, #324e96);
+            border-color: #fff;
+            box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }  
+
+        /* ==========================================
+           SLIDER COMPONENT
+        ========================================== */
+        .slider-container {
+            width: 95%;
+            max-width: 1050px;
+            position: relative;
+            background: rgba(14, 18, 29, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .slider-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #25cfff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(37, 207, 255, 0.3);
+        }
+
+        /* Controller Buttons Container */
+        .slider-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: #25cfff;
+            color: #0b0e14;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(37, 207, 255, 0.4);
+        }
+
+        /* Horizontal Carousel Track */
+        .card-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 5px 15px 5px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Hides default scrollbar for clean look */
+        }
+
+        .card-slider::-webkit-scrollbar {
+            display: none; /* Hides default scrollbar for Chrome/Safari */
+        }
+
+        /* --- THE DRAGON CARDS --- */
+        .dragon-card {
+            flex: 0 0 230px;
+            scroll-snap-align: start;
+            background: rgba(23, 29, 46, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .dragon-card:hover {
+            transform: translateY(-8px);
+            border-color: #f10606;
+            box-shadow: 0 12px 25px rgba(37, 207, 255, 0.2);
+            background: rgba(29, 37, 58, 0.95);
+        }
+
+        .rarity-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .heroic { background: #06ececc7; color: #fff; }
+        .legendary { background: #a503d6; color: #fff; }
+        .epic { background: #a9b406; color: #fff; }
+         .common { background: #a39a8d; color: #fff; }
+         .rare { background: #f59404f1; color: #fff; }
+          .veryrare { background: #01cf12f1; color: #fff; }
+        .img-wrapper {
+            background: radial-gradient(circle, rgba(37, 207, 255, 0.08) 0%, transparent 70%);
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .dragon-card img {
+            max-width: 85%;
+            max-height: 110px;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
+        }
+
+        .dragon-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .element-badges {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .element-badges span {
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
-
 <body>
-
-<!-- =========================
-     NAVIGATION
-========================= -->
 
 <nav class="navbar">
 
@@ -704,11 +269,11 @@ footer {
         </li>
 
         <li>
-            <a href="#dragons">DRAGONS</a>
+            <a href="Dragons.html">DRAGONS</a>
         </li>
 
         <li>
-            <a href="#">HABITATS</a>
+            <a href="habitats.html">HABITATS</a>
         </li>
 
         <li>
@@ -731,410 +296,287 @@ footer {
 
 </nav>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-    <div class="hero-title">
-
-        <h1>Dragon city</h1>
-
-        <p>
-            DISCOVER • COLLECT • TRAIN • BREEDING • FEED • FIGHT
-            
-        </p>
-
-    </div>
-
-
-    <!-- =========================
-         DRAGON CARDS
-    ========================= -->
-
-    <section class="dragon-section" id="dragons">
-
-        <div class="section-header">
-
-            <h2>Featured Dragons</h2>
-
-            <span>
-                DRAGONS • ELEMENTS • RARITY
-            </span>
-
-        </div>
-
-
-        <div class="slider-wrapper">
-
-            <div class="dragon-slider" id="dragonSlider">
-
-
-                <!-- DRAGON 1 -->
-
-                <article class="dragon-card">
-
-                    <div class="dragon-image fire">
-
-                        <div class="elements">
-                            <div class="element">🔥</div>
-                            <div class="element">🌪️</div>
-                        </div>
-
-                        <div class="rarity">
-                            HEROIC
-                        </div>
-
-                        <img
-                            src="dragon1.png"
-                            alt="Fire Dragon"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <h3>Inferno Dragon</h3>
-
-                        <p>
-                            A powerful fire dragon born from
-                            the heart of a blazing volcano.
-                        </p>
-
-                        <div class="stats">
-
-                            <div class="stat">
-                                <strong>45K</strong>
-                                <small>Attack</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>38K</strong>
-                                <small>Health</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>35</strong>
-                                <small>Level</small>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- DRAGON 2 -->
-
-                <article class="dragon-card">
-
-                    <div class="dragon-image water">
-
-                        <div class="elements">
-                            <div class="element">💧</div>
-                            <div class="element">❄️</div>
-                        </div>
-
-                        <div class="rarity">
-                            LEGENDARY
-                        </div>
-
-                        <img
-                            src="dragon2.png"
-                            alt="Water Dragon"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <h3>Aqua Dragon</h3>
-
-                        <p>
-                            Guardian of ancient oceans and
-                            master of powerful water magic.
-                        </p>
-
-                        <div class="stats">
-
-                            <div class="stat">
-                                <strong>41K</strong>
-                                <small>Attack</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>43K</strong>
-                                <small>Health</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>40</strong>
-                                <small>Level</small>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- DRAGON 3 -->
-
-                <article class="dragon-card">
-
-                    <div class="dragon-image nature">
-
-                        <div class="elements">
-                            <div class="element">🌿</div>
-                            <div class="element">🌍</div>
-                        </div>
-
-                        <div class="rarity">
-                            EPIC
-                        </div>
-
-                        <img
-                            src="dragon3.png"
-                            alt="Nature Dragon"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <h3>Forest Dragon</h3>
-
-                        <p>
-                            A mystical guardian that protects
-                            the oldest forests of Dragon City.
-                        </p>
-
-                        <div class="stats">
-
-                            <div class="stat">
-                                <strong>34K</strong>
-                                <small>Attack</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>40K</strong>
-                                <small>Health</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>32</strong>
-                                <small>Level</small>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- DRAGON 4 -->
-
-                <article class="dragon-card">
-
-                    <div class="dragon-image ice">
-
-                        <div class="elements">
-                            <div class="element">❄️</div>
-                            <div class="element">💎</div>
-                        </div>
-
-                        <div class="rarity">
-                            LEGENDARY
-                        </div>
-
-                        <img
-                            src="dragon4.png"
-                            alt="Ice Dragon"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <h3>Frost Dragon</h3>
-
-                        <p>
-                            A majestic dragon capable of
-                            freezing entire mountains.
-                        </p>
-
-                        <div class="stats">
-
-                            <div class="stat">
-                                <strong>39K</strong>
-                                <small>Attack</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>45K</strong>
-                                <small>Health</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>42</strong>
-                                <small>Level</small>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- DRAGON 5 -->
-
-                <article class="dragon-card">
-
-                    <div class="dragon-image legend">
-
-                        <div class="elements">
-                            <div class="element">✨</div>
-                            <div class="element">⚡</div>
-                        </div>
-
-                        <div class="rarity">
-                            HEROIC
-                        </div>
-
-                        <img
-                            src="dragon5.png"
-                            alt="Legend Dragon"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <h3>Celestial Dragon</h3>
-
-                        <p>
-                            A legendary creature said to have
-                            descended from the stars.
-                        </p>
-
-                        <div class="stats">
-
-                            <div class="stat">
-                                <strong>52K</strong>
-                                <small>Attack</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>50K</strong>
-                                <small>Health</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>50</strong>
-                                <small>Level</small>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- DRAGON 6 -->
-
-                <article class="dragon-card">
-
-                    <div class="dragon-image fire">
-
-                        <div class="elements">
-                            <div class="element">🔥</div>
-                            <div class="element">⚡</div>
-                        </div>
-
-                        <div class="rarity">
-                            EPIC
-                        </div>
-
-                        <img
-                            src="dragon6.png"
-                            alt="Thunder Dragon"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <h3>Thunder Dragon</h3>
-
-                        <p>
-                            A storm-born dragon that commands
-                            lightning from the skies.
-                        </p>
-
-                        <div class="stats">
-
-                            <div class="stat">
-                                <strong>47K</strong>
-                                <small>Attack</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>36K</strong>
-                                <small>Health</small>
-                            </div>
-
-                            <div class="stat">
-                                <strong>38</strong>
-                                <small>Level</small>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
+  <div class="slider-container">
+        <div class="slider-header">
+            <h2 class="slider-title">Featured Dragons</h2>
+            <!-- Functional Slide Action Buttons -->
+            <div class="slider-controls">
+                <button class="control-btn" onclick="document.getElementById('slider').scrollBy({left: -230, behavior: 'smooth'})">←</button>
+                <button class="control-btn" onclick="document.getElementById('slider').scrollBy({left: 230, behavior: 'smooth'})">→</button>
             </div>
-
-
-            <!-- SLIDER CONTROLS -->
-
-            <div class="slider-buttons">
-
-                <a
-                    class="slider-button"
-                    href="#dragons"
-                >
-                    ←
-                </a>
-
-                <a
-                    class="slider-button"
-                    href="#dragons"
-                >
-                    →
-                </a>
-
-            </div>
-
         </div>
-
-    </section>
-
-</section>
-
-
-<footer>
-    DRAGON CITY CREATED BY GROUP 2
-</footer>
-
-</body>
-</html>
+        
+        <div class="card-slider" id="slider">
+            <!-- Card 1 -->
+            <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/6/60/Nature_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250119141202" alt="High Norn">
+                </div>
+                <div class="dragon-name">Nature Dragon</div>
+                <div class="element-badges"><span>🌿</span></div>
+            </div>
+            <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/2/2f/Flame_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250116095007" alt="Flame">
+                </div>
+                <div class="dragon-name">Flame Dragon</div>
+                <div class="element-badges"><span>🔥</span></div>
+            </div>
+            <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/1/11/Terra_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250112073148" alt="Flame">
+                </div>
+                <div class="dragon-name">Terra Dragon</div>
+                <div class="element-badges"><span>⛰️</span></div>
+            </div>
+            <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/e/e2/Sea_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250110081116" alt="Aqua">
+                </div>
+                <div class="dragon-name">Sea Dragon</div>
+                <div class="element-badges"><span>💧</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/7/77/Gummy_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250101024317" alt="Aqua">
+                </div>
+                <div class="dragon-name">Gummy Dragon</div>
+                <div class="element-badges"><span>🌿</span><span>⚡</span></div>
+            </div>
+             <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/7/76/Blizzard_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250118051444" alt="Aqua">
+                </div>
+                <div class="dragon-name">Blizzard Dragon</div>
+                <div class="element-badges"><span>❄️</span><span>🔥</span></div>
+            </div>
+             <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/5/56/Cloud_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250118153322" alt="Aqua">
+                </div>
+                <div class="dragon-name">Cloud Dragon</div>
+                <div class="element-badges"><span>💧</span><span>🔥</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/9/92/Butterfly_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250120085609" alt="Aqua">
+                </div>
+                <div class="dragon-name">Butterfly Dragon</div>
+                <div class="element-badges"><span>🌿</span><span>🔥</span></div>
+            </div>
+            <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/f/fa/Star_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250121144702" alt="Aqua">
+                </div>
+                <div class="dragon-name">Star Dragon</div>
+                <div class="element-badges"><span>⚡</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/1/1d/Lantern_Fish_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250106090816  " alt="Aqua">
+                </div>
+                <div class="dragon-name">Lantern Fish Dragon</div>
+                <div class="element-badges"><span>💧</span><span>⚡</span></div>
+            </div>
+             <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/c/cb/Ice_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250107010442" alt="Aqua">
+                </div>
+                <div class="dragon-name">Ice Dragon</div>
+                <div class="element-badges"><span>❄️</span></div>
+            </div>
+               <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/8/80/Ice_Cream_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250109152211" alt="Aqua">
+                </div>
+                <div class="dragon-name">Ice Cream Dragon</div>
+                <div class="element-badges"><span>💧</span><span>❄️</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/6/6a/Ice_Cube_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250111081119" alt="Aqua">
+                </div>
+                <div class="dragon-name">Ice Cube Dragon</div>
+                <div class="element-badges"><span>💧</span><span>❄️</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/f/f4/Jade_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250122011924" alt="Aqua">
+                </div>
+                <div class="dragon-name">Jade Dragon</div>
+                <div class="element-badges"><span>🌿</span><span>🔧</span></div>
+            </div>
+           <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/8/87/Gold_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250123080435" alt="Aqua">
+                </div>
+                <div class="dragon-name">Gold Dragon</div>
+                <div class="element-badges"><span>🔧</span><span>⚡</span></div>
+            </div>
+            <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/c/c1/Dark_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250124015443" alt="Aqua">
+                </div>
+                <div class="dragon-name">Dark Dragon</div>
+                <div class="element-badges"><span>🌑</span></div>
+            </div>
+               <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/a/a5/Dark_Fire_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250201044239 " alt="Aqua">
+                </div>
+                <div class="dragon-name">Dark Fire Dragon</div>
+                <div class="element-badges"><span>🌑</span><span>🔥</span></div>
+            </div>
+                <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/5/5d/Petroleum_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250110010502" alt="Aqua">
+                </div>
+                <div class="dragon-name">Petroleum Dragon</div>
+                <div class="element-badges"><span>💧</span><span>🌑</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag common">common</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/9/9e/Penguin_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250205050642" alt="Aqua">
+                </div>
+                <div class="dragon-name">Penguin Dragon</div>
+                <div class="element-badges"><span>❄️</span><span>🌑</span></div>
+            </div>
+             <div class="dragon-card">
+                <span class="rarity-tag veryrare">very rare</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/9/9c/Colossal_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250211074039" alt="Aqua">
+                </div>
+                <div class="dragon-name">Colossal Dragon</div>
+                <div class="element-badges"><span>⚔️</span><span>⛰️</span></div>
+            </div>
+             <div class="dragon-card">
+                <span class="rarity-tag veryrare">very rare</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/1/1e/Dark_Stone_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250213143556" alt="Aqua">
+                </div>
+                <div class="dragon-name">Dark Stone Dragon</div>
+                <div class="element-badges"><span>⚔️</span><span>🌑</span></div>
+            </div>
+            <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/1/11/Archangel_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250131130706" alt="Flame">
+                </div>
+                <div class="dragon-name">Archangel Dragon</div>
+                <div class="element-badges"><span>☀️</span></div>
+            </div>
+             <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/7/7d/Pure_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250123073059" alt="Flame">
+                </div>
+                <div class="dragon-name">Pure Dragon</div>
+                <div class="element-badges"><span>⚜️</span></div>
+            </div>
+               <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/6/62/Pure_Terra_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250211145604" alt="Aqua">
+                </div>
+                <div class="dragon-name">Pure Terra Dragon</div>
+                <div class="element-badges"><span>⚜️</span>⛰️</div>
+            </div>
+                <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/5/56/Pure_Flame_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250212133836" alt="Aqua">
+                </div>
+                <div class="dragon-name">Pure Flame Dragon</div>
+                <div class="element-badges"><span>⚜️</span><span>🔥</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/8/88/Pure_Sea_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250214033550" alt="Aqua">
+                </div>
+                <div class="dragon-name">Pure Sea Dragon</div>
+                <div class="element-badges"><span>⚜️</span><span>💧</span></div>
+            </div>
+               <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/8/85/Pure_Electric_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250220072554" alt="Aqua">
+                </div>
+                <div class="dragon-name">Pure Electric Dragon</div>
+                <div class="element-badges"><span>⚜️</span><span>⚡</span></div>
+            </div>
+                <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/5/52/Pure_Dark_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250208135940" alt="Aqua">
+                </div>
+                <div class="dragon-name">Pure Dark Dragon</div>
+                <div class="element-badges"><span>⚜️</span><span>🌑</span></div>
+            </div>
+                 <div class="dragon-card">
+                <span class="rarity-tag legendary">legendary</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/0/08/Kratus_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250124153720" alt="Aqua">
+                </div>
+                <div class="dragon-name">Kratus Dragon</div>
+                <div class="element-badges"><span>⚜️</span><span>⚔️</span></div>
+            </div>
+                 <div class="dragon-card">
+                <span class="rarity-tag legendary">legendary</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/4/45/Legacy_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250123053711" alt="Aqua">
+                </div>
+                <div class="dragon-name">Legacy Dragon</div>
+                <div class="element-badges"><span>♾️</span></div>
+            </div>
+                  <div class="dragon-card">
+                <span class="rarity-tag legendary">legendary</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/8/8e/Crystal_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250126042141" alt="Aqua">
+                </div>
+                <div class="dragon-name">Crystal Dragon</div>
+                <div class="element-badges"><span>♾️</span></div>
+            </div>
+                    <div class="dragon-card">
+                <span class="rarity-tag legendary">legendary</span>
+                <div class="img-wrapper">
+                    <img src=https://static.wikia.nocookie.net/dragoncity/images/8/87/Air_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250201055349" alt="Aqua">
+                </div>
+                <div class="dragon-name">Air Dragon</div>
+                <div class="element-badges"><span>♾️</span></div>
+            </div>
+                   <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/e/e6/Wyvern_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250222000508" alt="Aqua">
+                </div>
+                <div class="dragon-name">Wyvern Dragon</div>
+                <div class="element-badges"><span>🌑</span><span>🔥</span><span>⛰️</span></div>
+            </div>
+               <div class="dragon-card">
+                <span class="rarity-tag veryrare">veryrare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/6/66/Steam_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250224082158" alt="Aqua">
+                </div>
+                <div class="dragon-name">Steam Dragon</div>
+                <div class="element-badges"><span>💧</span><span>🔥</span><span>❄️</span></div>
+            </div>
