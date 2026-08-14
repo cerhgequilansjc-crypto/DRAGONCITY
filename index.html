@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </section>
-<style>
-          * {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon City</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -16,7 +17,22 @@
         html {
             scroll-behavior: smooth;
         }
-          .navbar {
+        body {
+            min-height: 100vh;
+            background-color: #0b0e14;
+            /* Using the uploaded background image asset */
+            background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 140px; /* Space so content clears the fixed header */
+            padding-bottom: 40px;
+        }
+       .navbar {
       position: fixed;
       top: 0;
       left: 0;
@@ -31,12 +47,11 @@
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
         .logo {
             position: absolute;
             left: 15px;
-            top: 15px;
-            width: 70px;
+            top: 10px;
+            width: 65px;
             height: 50px;
             object-fit: contain;
         }
@@ -51,7 +66,7 @@
             min-width: 120px;
             padding: 10px 20px;
             text-align: center;
-            border: 1px solid rgba(252, 249, 249, 0.3);
+            border: 1px solid rgba(255,255,255,0.3);
             border-radius: 30px;
             font-weight: bold;
             font-size: 0.9rem;
@@ -61,88 +76,21 @@
             background: rgba(255, 255, 255, 0.03);
         }
         .nav-menu a:hover {
-            background: linear-gradient(135deg, #18a4c0, #324e96);
+            background: linear-gradient(135deg, #2cc9e9, #324e96);
             border-color: #fff;
             box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
             transform: translateY(-2px);
         }  
-        .carousel {
-            width: 100%;
-            height: 500px;
-            position: fixed;
-            overflow: fixed;
-        }
-        .slides {
-            display: flex;
-            width: 900%;
-            height: 120%;
-            animation: slide 32s infinite;
-        }
-        .slides img {
-            width: 12.5%;
-            height: 200%;
-            object-fit: cover;
-        }
-        /* AUTOMATIC SLIDE */
-        @keyframes slide {
-
-            0%   { transform: translateX(0); }
-            10%  { transform: translateX(0); }
-
-            12%  { transform: translateX(-12.5%); }
-            22%  { transform: translateX(-12.5%); }
-
-            24%  { transform: translateX(-25%); }
-            34%  { transform: translateX(-25%); }
-        }
-        .title {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            color: white;
-            text-align: center;
-
-            text-shadow: 3px 5px 8px black;
-        }
-        .title h1 {
-            font-size: 50px;
-        }
-        .title p {
-            font-size: 18px;
-        }
-
-
-        @media (max-width: 800px) {
-            .carousel {
-                height: 350px;
-            }
-
-            .title h1 {
-                font-size: 30px;
-            }
-        }
     </style>
-</head>
-
-<body>
-<div class="carousel">
-
-    <div class="slides">
-
-        <img src="https://scontent.fmnl4-7.fna.fbcdn.net/v/t1.15752-9/764517204_1365813642417572_1643254159708085904_n.jpg?stp=dst-jpg_tt6&cstp=mx1376x768&ctp=s1376x768&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGWS9UVaTgeZ8RBdHtm5mLEnik_1sAfliOeKT_WwB-WI3bZhblvepYvrgnixR7_OIVjzoGVC6tjFsksvUsQOZ2n&_nc_ohc=1LAf2fnb_y0Q7kNvwEMrL8o&_nc_oc=AdoQlZUbmF5KxFRqJAVkij5wPpupDagGV6smUznWbkUBTEwrEY-l5ZlWe21OzR3qd7a7KcTzvZBcXEUiRMSil-Ok&_nc_zt=23&_nc_ht=scontent.fmnl4-7.fna&_nc_ss=7b2a8&oh=03_Q7cD6AFzIjW8z65tawSZJdBlM12lI6ZlL8YCCOU1Is6QAdrv7Q&oe=6AA35B07">
-        <img src="https://images6.alphacoders.com/112/thumb-1920-1124131.png">
-        <img src="https://store-images.s-microsoft.com/image/apps.60940.14098991041572765.24a22c10-771e-440c-b9aa-1522a505d4ba.f8aff810-310f-4b23-9d5c-e6b43337bf06">
-    </div>
-</div>
-<nav class="navbar">
+    <nav class="navbar">
     <img
         class="logo"
         src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
-        alt="Dragon City">
+        alt="Dragon City"
+    >
     <ul class="nav-menu">
-<li>
+
+       <li>
             <a href="index.html">HOME</a>
         </li>
         <li>
@@ -162,11 +110,78 @@
         </li>
         <li>
             <a href="Decor.html">Decor</a>
-        </li>
+        </li>s
     </ul>
 </nav>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </section>
-</section>
+    <div class="ui-card">
+        
+        <!-- Header Branding Section -->
+        <header class="card-header">
+            <h1 class="main-title">Dragon City</h1>
+            <p class="subtitle">SIMULATION & STRATEGY</p>
+        </header>
+
+        <!-- Dynamic Statistics Section -->
+        <section class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">2,200+</span>
+                <span class="stat-label">Dragons</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80M+</span>
+                <span class="stat-label">Players</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Rarities</span>
+            </div>
+        </section>
+        <div class="scroll-content">
+            <h2 class="section-title">✨ ABOUT THE GAME ✨</h2>
+            
+            <div class="feature-row">
+                <div class="feature-icon">🌴</div>
+                <div class="feature-text">
+                    <h3>BUILD ISLANDS</h3>
+                    <p>Construct customized elemental habitats and farm food to sustain your growing dragon empire.</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Breed & Collect -->
+            <div class="feature-row">
+                <div class="feature-icon">🧬</div>
+                <div class="feature-text">
+                    <h3>BREED & COLLECT</h3>
+                    <p>Cross-breed different elements to hatch unique hybrid variants and fill out your Dragon Book.</p>
+                </div>
+            </div>
+
+            <!-- Row 3: Strategic Battles -->
+            <div class="feature-row">
+                <div class="feature-icon">⚔️</div>
+                <div class="feature-text">
+                    <h3>STRATEGIC BATTLES</h3>
+                    <p>Engage in turn-based PvP arenas leveraging elemental strengths, weaknesses, and special active perks.</p>
+                </div>
+            </div>
+
+            <!-- Row 4: Strategic Battles Duplicate -->
+            <div class="feature-row">
+                <div class="feature-icon">🍓</div>
+                <div class="feature-text">
+                    <h3>FEED YOUR DRAGON</h3>
+                    <p> Feed the dragon and train to become stronger and unlocked other Abilities</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Module -->
+        <footer class="card-footer">
+            <span class="developer-info">Developer: Socialpoint</span>
+            <span class="badge">Free to Play</span>
+        </footer>
+
+    </div>
+
 </body>
 </html>
