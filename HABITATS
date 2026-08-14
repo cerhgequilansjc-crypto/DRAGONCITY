@@ -103,33 +103,27 @@ body{
 
     <ul class="nav-menu">
 
-        <li>
+       <li>
             <a href="index.html">HOME</a>
         </li>
-
         <li>
-            <a href="#">ABOUT</a>
+            <a href="About.html">ABOUT</a>
         </li>
-
+        <li>
+            <a href="Gameplay.html">GAMEPLAY</a>
+        </li>
         <li>
             <a href="Dragons.html">DRAGONS</a>
         </li>
-
         <li>
-            <a href="habitats.html">HABITATS</a>
+            <a href="Habitats.html">Habitats</a>
         </li>
-
         <li>
-            <a href="#">DECOR</a>
+            <a href="Building.html">Building</a>
         </li>
-
         <li>
-            <a href="#">ORB</a>
-        </li>
-
-        <li>
-            <a href="#">GEMS</a>
-        </li>
+            <a href="Decor.html">Decor</a>
+        </li>s
 
     </ul>
 
