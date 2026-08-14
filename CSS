@@ -1,663 +1,209 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+body {
+      min-height: 100vh;
+      background-color: #080c14;
+      background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 130px;
+      padding-bottom: 50px;
+    }
+.ui-card {
+    background-color: #2c6b8f;
+    width: 100%;
+    max-width: 580px;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 60px rgba(10, 40, 80, 0.76);
+    border: 6px solid rgba(202, 4, 4, 0.05);
+    position: relative;
+    overflow: hidden;
 }
 
-body{
-    margin: 0;
-    background-color: rgb(168, 162, 162);
-    background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-/* =========================
-   NAVIGATION BAR
-========================= */
-
-.navbar {
-    position: fixed;
+.ui-card::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 72px;
-
-    background: rgba(25, 28, 31, 0.92);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 1000;
-
-    border-bottom: 1px solid rgba(89, 108, 110, 0.753);
+    width: 200%;
+    height: 5px;
+    background: linear-gradient(to right, #daee27, #0328ce);
 }
 
-.logo {
-    position: absolute;
-    left: 15px;
-    top: 10px;
-
-    width: 65px;
-    height: 50px;
-
-    object-fit: contain;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 4px;
-    list-style: none;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-
-    min-width: 120px;
-    padding: 12px 20px;
-
+/* Header Text Alignments */
+.card-header {
     text-align: center;
-
-    border: 1px solid rgba(255,255,255,0.8);
-    border-radius: 30px;
-
-    font-weight: bold;
-    font-style: italic;
-    letter-spacing: 1px;
-
-    transition: 0.3s ease;
+    margin-bottom: 70px;
 }
 
-.nav-menu a:hover {
-    background: linear-gradient(
-        135deg,
-        #386770,
-        #324e96
-    );
+.main-title {
+    color: #e7eb1a;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
 
-    border-color: #fff;
+.subtitle {
+    color: #e7e4e3;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 6px;
+}
 
-    box-shadow:
-        0 0 15px #25cfff,
-        inset 0 0 10px rgba(255,255,255,0.3);
+/* Statistics Grid Section Layout */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #0f4657;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
 
-    transform: translateY(-2px);
-}   
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-
-    padding-top: 72px;
-
-    background:
-        linear-gradient(
-            rgba(23, 49, 56, 0.733),
-            rgba(30, 60, 102, 0.918)
-        ),
-        url("dragon-bg.png");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    position: relative;
-
+.stat-item {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-
-    overflow: hidden;
+    gap: 3px;
 }
 
-.hero::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            rgba(150,235,255,0.45),
-            transparent 35%
-        );
-
-    pointer-events: none;
+.stat-number {
+    color: #1d95f8; /* Warm bright gold accent */
+    font-size: 25px;
+    font-weight: 600;
 }
 
-.hero-title {
-    position: relative;
-
-    text-align: center;
-
-    margin-bottom: 30px;
-
-    text-shadow:
-        0 3px 5px #1ca5b8,
-        0 0 20px #00cfff;
+.stat-label {
+    color: #f1eded;
+    font-size: 11px;
+    font-weight: 600;
 }
 
-.hero-title h1 {
-    font-size: clamp(38px, 5vw, 75px);
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-    color: white;
+/* Section Title Settings */
+.section-title {
+    color: #fffcfc;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
 }
 
-.hero-title p {
-    margin-top: 8px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 15px;
-
-    letter-spacing: 4px;
-
-    color: #bceeff;
-}
-
-.dragon-section {
-    position: relative;
-
-    width: 100%;
-
-    padding: 35px 50px 55px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            rgba(63, 122, 194, 0.75) 10%,
-            rgba(86, 129, 172, 0.98)
-        );
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    max-width: 1450px;
-
-    margin: 0 auto 20px;
-}
-
-.section-header h2 {
-    font-size: 30px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    text-shadow: 0 0 12px #11a3c7;
-}
-
-.section-header span {
-    font-family: Arial, sans-serif;
-
-    font-size: 13px;
-
-    color: #9bdff5;
-
-    letter-spacing: 1px;
-}
-
-/* =========================
-   SLIDER
-========================= */
-
-.slider-wrapper {
-    max-width: 1450px;
-
-    margin: auto;
-
-    position: relative;
-}
-
-.dragon-slider {
-    display: flex;
-
-    gap: 22px;
-
-    overflow-x: auto;
-
-    scroll-snap-type: x mandatory;
-
-    padding: 10px 5px 25px;
-
+/* ========================================================
+   SCROLL LINE CONTAINER (THE CORE FEATURE)
+   ======================================================== */
+.scroll-content {
+    max-height: 250px; /* Limits visible items to trigger scrolling action */
+    overflow-y: auto;  /* Directs vertical engine activation */
+    padding-right: 16px; /* Essential safety space to offset text from track line */
+    
+    /* Cross-browser Fallbacks for Firefox styling rules */
     scrollbar-width: thin;
-
-    scrollbar-color: #28cfff #15212c;
-
-    scroll-behavior: smooth;
+    scrollbar-color: #0efad3 rgba(255, 255, 255, 0.05);
 }
 
-.dragon-slider::-webkit-scrollbar {
-    height: 8px;
+/* 1. Customizing Right Scrollbar Track Design (Webkit Browsers) */
+.scroll-content::-webkit-scrollbar {
+    width: 5px; /* Narrow profile sleek scroll track line width */
 }
 
-.dragon-slider::-webkit-scrollbar-track {
-    background: #25609b;
-
-    border-radius: 20px;
+.scroll-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04); /* Subtle glowing trace line */
+    border-radius: 10px;
+}
+.scroll-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0dbb32, #ff007c); /* Bright gradient layout matching the card header */
+    border-radius: 10px;
 }
 
-.dragon-slider::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        90deg,
-        #00cfff,
-        #557aff
-    );
-
-    border-radius: 20px;
+.scroll-content::-webkit-scrollbar-thumb:hover {
+    background: #c93e1b; /* Interactive shift feedback glow tint color */
 }
 
-/* =========================
-   DRAGON CARD
-========================= */
-
-.dragon-card {
-    flex: 0 0 265px;
-
-    height: 390px;
-
-    scroll-snap-align: start;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            160deg,
-            rgba(15, 60, 90, 0.95),
-            rgba(4, 15, 28, 0.98)
-        );
-
-    border: 1px solid rgba(117, 221, 255, 0.5);
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,0.55),
-        inset 0 0 25px rgba(0,180,255,0.08);
-
-    transition:
-        transform 1.35s ease,
-        box-shadow 1.35s ease;
+/* OPTIONAL LOGIC OVERRIDE: Switches Custom Scroll Line to Left Side */
+.scroll-content.scroll-left {
+    direction: rtl; /* Forces standard system track location to pivot left */
+    padding-right: 0;
+    padding-left: 16px;
+}
+.scroll-content.scroll-left > * {
+    direction: ltr; /* Restores standard content block flows left-to-right */
 }
 
-.dragon-card:hover {
-    transform: translateY(-12px) scale(1.025);
-
-    border-color: #70e8ff;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,0.8),
-        0 0 25px rgba(0,211,255,0.45);
-}
-
-/* =========================
-   DRAGON IMAGE
-========================= */
-
-.dragon-image {
-    height: 220px;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(49, 151, 173, 0.45),
-            transparent 65%
-        );
-}
-
-.dragon-image img {
-    width: 90%;
-    height: 100%;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(0 10px 12px rgba(0,0,0,0.7));
-
-    transition: 0.4s ease;
-}
-
-.dragon-card:hover .dragon-image img {
-    transform: scale(1.12) translateY(-5px);
-}
-
-/* =========================
-   ELEMENT BADGE ITO NAMAN YUNG MGA ELEMENT NG DRAGONS
-========================= */
-
-.elements {
-    position: absolute;
-
-    top: 12px;
-    left: 12px;
-
-    display: flex;
-
-    gap: 6px;
-}
-
-.element {
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    font-size: 18px;
-
-    background: rgba(0,0,0,0.65);
-
-    border: 1px solid rgba(255,255,255,0.5);
-
-    box-shadow: 0 0 10px rgba(0,200,255,0.5);
-}
-
-/* =========================
-   RARITY ITO NAMAN YUNG SA MGA GILID NG CARD
-========================= */
-
-.rarity {
-    position: absolute;
-
-    top: 15px;
-    right: 12px;
-
-    padding: 5px 10px;
-
+/* Individual Content Row Architecture */
+.feature-row {
+    background-color: #2859a3;
     border-radius: 15px;
-
-    background: rgba(0,0,0,0.65);
-
-    font-family: Arial, sans-serif;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    color: #ffe681;
-
-    border: 1px solid #ffe681;
-}
-
-/* =========================
-   CARD ITO NAMAN YUNG SA TEXT
-========================= */
-
-.card-info {
-    padding: 17px 18px;
-}
-
-.card-info h3 {
-    font-size: 24px;
-
-    margin-bottom: 5px;
-
-    text-shadow: 0 2px 4px #4dbef3bb;
-}
-
-.card-info p {
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
-    color: #a7d8e8;
-
-    line-height: 1.5;
-
-    min-height: 38px;
-}
-
-/* =========================
-   STATS
-========================= */
-
-.stats {
+    padding: 16px 20px;
+    margin-bottom: 20px;
     display: flex;
-
-    justify-content: space-between;
-
-    margin-top: 14px;
-
-    padding-top: 10px;
-
-    border-top: 1px solid rgba(42, 95, 99, 0.822);
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.feature-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 5px;
+    width: 5px;
+    background-color: #2fe0e0;
+    border-radius: 0 10px 10px 0;
 }
 
-.stat {
-    text-align: center;
-
-    font-family: Arial, sans-serif;
+.feature-icon {
+    font-size: 20px;
+    margin-top: 2px;
 }
 
-.stat strong {
-    display: block;
-
+.feature-text h3 {
+    color: #ffffff;
     font-size: 15px;
-
-    color: white;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 
-.stat small {
-    font-size: 9px;
-
-    color: #72cce8;
-
-    text-transform: uppercase;
+.feature-text p {
+    color: #f8f8fa;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-/* =========================
-   SLIDER BUTTONS ITO NAMAN YUNG PINDUTAN
-========================= */
-
-.slider-buttons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-
+.card-footer {
     margin-top: 10px;
-}
-
-.slider-button {
-    width: 42px;
-    height: 42px;
-
     display: flex;
-
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
-    text-decoration: none;
-
-    color: white;
-
-    font-size: 22px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.5);
-
-    background: rgba(0,0,0,0.5);
-
-    transition: 0.3s;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
 }
 
-.slider-button:hover {
-    background: #16bfe9;
-
-    box-shadow: 0 0 15px #16bfe9;
+.developer-info {
+    color: #fad501;
+    font-size: 20px;
 }
 
-/* =========================
-   DRAGON CARD COLORS
-========================= */
-
-.fire {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,80,30,0.35),
-            transparent 65%
-        );
-}
-
-.water {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(0,180,255,0.45),
-            transparent 65%
-        );
-}
-
-.nature {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(60,220,100,0.35),
-            transparent 65%
-        );
-}
-
-.ice {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(130,230,255,0.45),
-            transparent 65%
-        );
-}
-
-.legend {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(180,90,255,0.45),
-            transparent 65%
-        );
-}
-
-/* =========================
-   FOOTER ITO YUNG SA BABA YUNG MAY NAKAGALAGAY NA GROUP
-========================= */
-
-footer {
-    padding: 30px;
-
-    text-align: center;
-
-    background: #0c1116;
-
-    color: #7193a3;
-
-    font-family: Arial, sans-serif;
-
+.badge {
+    background-color: #291540;
+    color: #b66eff;
     font-size: 12px;
-
-    letter-spacing: 1px;
-}
-
-@media (max-width: 900px) {
-
-    .navbar {
-        height: 65px;
-
-        justify-content: flex-start;
-
-        padding-left: 80px;
-
-        overflow-x: auto;
-    }
-
-    .logo {
-        width: 55px;
-        left: 12px;
-    }
-
-    .nav-menu {
-        gap: 5px;
-    }
-
-    .nav-menu a {
-        min-width: auto;
-
-        padding: 10px 14px;
-
-        font-size: 11px;
-    }
-
-    .hero {
-        background-attachment: scroll;
-    }
-
-    .dragon-section {
-        padding: 30px 15px;
-    }
-
-    .dragon-card {
-        flex-basis: 240px;
-    }
-
-}
-
-@media (max-width: 500px) {
-
-    .hero-title h1 {
-        font-size: 32px;
-    }
-
-    .hero-title p {
-        font-size: 10px;
-
-        letter-spacing: 2px;
-    }
-
-    .section-header h2 {
-        font-size: 20px;
-    }
-
-    .section-header span {
-        display: none;
-    }
-
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(182, 110, 255, 0.2);
 }
 
