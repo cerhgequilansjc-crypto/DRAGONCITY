@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragon City Showcase</title>
     <style>
-        /* ==========================================
-           BASE SETUP & THEMED BACKGROUND
-        ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             min-height: 100vh;
             background-color: #0b0e14;
@@ -49,7 +44,6 @@
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
         .logo {
             position: absolute;
             left: 15px;
@@ -58,13 +52,11 @@
             height: 50px;
             object-fit: contain;
         }
-
         .nav-menu {
             display: flex;
             gap: 12px;
             list-style: none;
         }
-
         .nav-menu a {
             text-decoration: none;
             color: white;
@@ -80,7 +72,6 @@
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.03);
         }
-
         .nav-menu a:hover {
             background: linear-gradient(135deg, #2cc9e9, #324e96);
             border-color: #fff;
@@ -140,8 +131,6 @@
             border-color: #ffffff;
             box-shadow: 0 0 15px rgba(37, 207, 255, 0.4);
         }
-
-        /* Horizontal Carousel Track */
         .card-slider {
             display: flex;
             gap: 20px;
@@ -149,14 +138,11 @@
             padding: 10px 5px 15px 5px;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none; /* Hides default scrollbar for clean look */
+            scrollbar-width: none;
         }
-
         .card-slider::-webkit-scrollbar {
-            display: none; /* Hides default scrollbar for Chrome/Safari */
+            display: none; 
         }
-
-        /* --- THE DRAGON CARDS --- */
         .dragon-card {
             flex: 0 0 230px;
             scroll-snap-align: start;
@@ -168,14 +154,12 @@
             transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
         }
-
         .dragon-card:hover {
             transform: translateY(-8px);
             border-color: #f10606;
             box-shadow: 0 12px 25px rgba(37, 207, 255, 0.2);
             background: rgba(29, 37, 58, 0.95);
         }
-
         .rarity-tag {
             position: absolute;
             top: 15px;
@@ -201,27 +185,23 @@
             justify-content: center;
             margin-bottom: 12px;
         }
-
         .dragon-card img {
             max-width: 150%;
             max-height: 250px;
             object-fit: contain;
             filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
         }
-
         .dragon-name {
             font-size: 1rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 10px;
         }
-
         .element-badges {
             display: flex;
             justify-content: center;
             gap: 5px;
         }
-
         .element-badges span {
             font-size: 0.9rem;
             background: rgba(0, 0, 0, 0.4);
@@ -238,8 +218,6 @@
 <body>
 
 <nav class="navbar">
-
-    <!-- Replace with your Dragon City logo -->
     <img
         class="logo"
         src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
@@ -268,23 +246,18 @@
         <li>
             <a href="Decor.html">Decor</a>
         </li>s
-
     </ul>
-
 </nav>
-
   <div class="slider-container">
         <div class="slider-header">
             <h2 class="slider-title">Featured Dragons</h2>
-            <!-- Functional Slide Action Buttons -->
             <div class="slider-controls">
                 <button class="control-btn" onclick="document.getElementById('slider').scrollBy({left: -230, behavior: 'smooth'})">←</button>
                 <button class="control-btn" onclick="document.getElementById('slider').scrollBy({left: 230, behavior: 'smooth'})">→</button>
             </div>
         </div>
-        
+    
         <div class="card-slider" id="slider">
-            <!-- Card 1 -->
             <div class="dragon-card">
                 <span class="rarity-tag common">common</span>
                 <div class="img-wrapper">
@@ -555,7 +528,7 @@
                     <img src="https://static.wikia.nocookie.net/dragoncity/images/6/66/Steam_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250224082158" alt="Aqua">
                 </div>
                 <div class="dragon-name">Steam Dragon</div>
-                <div class="element-badges"><span>💧<span><span>🔥</span><span>❄️</span></div>
+                <div class="element-badges"><span>💧</span><span>🔥</span><span>❄️</span></div>
             </div>
               <div class="dragon-card">
                 <span class="rarity-tag epic">epic</span>
