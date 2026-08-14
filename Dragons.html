@@ -34,24 +34,21 @@
             padding-top: 140px; /* Space so content clears the fixed header */
             padding-bottom: 40px;
         }
-
-        /* ==========================================
-           NAVIGATION BAR (Your Fixed Template)
-        ========================================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 72px;
-            background: rgba(25, 28, 31, 0.92);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(89, 108, 110, 0.753);
-        }
+       .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      background: rgba(12, 16, 24, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
         .logo {
             position: absolute;
@@ -90,10 +87,6 @@
             box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
             transform: translateY(-2px);
         }  
-
-        /* ==========================================
-           SLIDER COMPONENT
-        ========================================== */
         .slider-container {
             width: 95%;
             max-width: 1050px;
@@ -105,7 +98,6 @@
             backdrop-filter: blur(12px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-
         .slider-header {
             display: flex;
             justify-content: space-between;
@@ -114,7 +106,6 @@
             padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-
         .slider-title {
             font-size: 1.4rem;
             font-weight: 800;
@@ -123,13 +114,10 @@
             letter-spacing: 1px;
             text-shadow: 0 2px 10px rgba(37, 207, 255, 0.3);
         }
-
-        /* Controller Buttons Container */
         .slider-controls {
             display: flex;
             gap: 10px;
         }
-
         .control-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -173,9 +161,9 @@
             flex: 0 0 230px;
             scroll-snap-align: start;
             background: rgba(23, 29, 46, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 5px solid rgba(255, 255, 255, 0.06);
             border-radius: 10px;
-            padding: 20px 15px;
+            padding: 25px 20px;
             text-align: center;
             transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
@@ -190,8 +178,8 @@
 
         .rarity-tag {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 15px;
+            left: 20px;
             font-size: 0.65rem;
             font-weight: 800;
             padding: 3px 8px;
@@ -207,7 +195,7 @@
           .veryrare { background: #01cf12f1; color: #fff; }
         .img-wrapper {
             background: radial-gradient(circle, rgba(37, 207, 255, 0.08) 0%, transparent 70%);
-            height: 130px;
+            height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -215,8 +203,8 @@
         }
 
         .dragon-card img {
-            max-width: 85%;
-            max-height: 110px;
+            max-width: 150%;
+            max-height: 250px;
             object-fit: contain;
             filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
         }
@@ -231,14 +219,14 @@
         .element-badges {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .element-badges span {
             font-size: 0.9rem;
             background: rgba(0, 0, 0, 0.4);
-            width: 28px;
-            height: 28px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -257,39 +245,29 @@
         src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
         alt="Dragon City"
     >
-
     <ul class="nav-menu">
 
-        <li>
+       <li>
             <a href="index.html">HOME</a>
         </li>
-
         <li>
-            <a href="#">ABOUT</a>
+            <a href="About.html">ABOUT</a>
         </li>
-
+        <li>
+            <a href="Gameplay.html">GAMEPLAY</a>
+        </li>
         <li>
             <a href="Dragons.html">DRAGONS</a>
         </li>
-
         <li>
-            <a href="habitats.html">HABITATS</a>
-        </li>
-
-        <li>
-            <a href="building.html">Building</a>
+            <a href="Habitats.html">Habitats</a>
         </li>
         <li>
-            <a href="decor.html">DECOR</a>
+            <a href="Building.html">Building</a>
         </li>
-
         <li>
-            <a href="#">ORB</a>
-        </li>
-
-        <li>
-            <a href="#">GEMS</a>
-        </li>
+            <a href="Decor.html">Decor</a>
+        </li>s
 
     </ul>
 
@@ -497,7 +475,7 @@
                     <img src=https://static.wikia.nocookie.net/dragoncity/images/6/62/Pure_Terra_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250211145604" alt="Aqua">
                 </div>
                 <div class="dragon-name">Pure Terra Dragon</div>
-                <div class="element-badges"><span>⚜️</span>⛰️</div>
+                <div class="element-badges"><span>⚜️</span><span>⛰️</span></div>
             </div>
                 <div class="dragon-card">
                 <span class="rarity-tag epic">epic</span>
@@ -577,5 +555,45 @@
                     <img src="https://static.wikia.nocookie.net/dragoncity/images/6/66/Steam_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250224082158" alt="Aqua">
                 </div>
                 <div class="dragon-name">Steam Dragon</div>
-                <div class="element-badges"><span>💧</span><span>🔥</span><span>❄️</span></div>
+                <div class="element-badges"><span>💧<span><span>🔥</span><span>❄️</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag epic">epic</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/d/db/Quake_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20140326083340" alt="Aqua">
+                </div>
+                <div class="dragon-name">Quake Dragon</div>
+                <div class="element-badges"><span>⛰️</span><span>💧</span><span>⚔️</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/8/80/Glacial_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250307081607" alt="ICE LIGNING NATURE">
+                </div>
+                <div class="dragon-name">Glacial Dragon</div>
+                <div class="element-badges"><span>❄️</span><span>⚡</span><span>🌿</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag rare">rare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/e/ec/Mars_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250428011244" alt="Aqua">
+                </div>
+                <div class="dragon-name">Steam Dragon</div>
+                <div class="element-badges"><span>💧</span><span>🌿</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag veryrare">veryrare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/1/1c/Desert_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250704065627" alt="Aqua">
+                </div>
+                <div class="dragon-name">Desert Dragon</div>
+                <div class="element-badges"><span>⛰️</span><span>🔥</span><span>⚡</span></div>
+            </div>
+              <div class="dragon-card">
+                <span class="rarity-tag veryrare">veryrare</span>
+                <div class="img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/9/97/Mistletoe_Dragon_3.png/revision/latest/scale-to-width-down/140?cb=20250816031228" alt="Aqua">
+                </div>
+                <div class="dragon-name">Mistletoe Dragon</div>
+                <div class="element-badges"><span>🌿</span><span>💧</span><span>❄️</span></div>
             </div>
