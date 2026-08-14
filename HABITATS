@@ -347,7 +347,7 @@ function next() {
     position += 1;
 
     if(position > 15) {
-        position = 0;
+        position = 0
     }
 
     document.getElementById("cards").style.transform =
@@ -355,9 +355,9 @@ function next() {
 }
 
 function prev() {
-    position -= 10;
+    position -= 1;
 
-    if(position < 1) {
+    if(position < 0) {
         position = 15;
     }
 
