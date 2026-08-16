@@ -28,9 +28,6 @@ body{
             padding-top: 140px;
             padding-bottom: 40px;
 }
-        /* ==========================================
-           NAVIGATION BAR (Your Fixed Template)
-        ========================================== */
         .navbar {
             position: fixed;
             top: 0;
@@ -88,13 +85,8 @@ body{
 </head>
 
     </style>
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav class="navbar">
 
-    <!-- Replace with your Dragon City logo -->
     <img
         class="logo"
         src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
@@ -130,7 +122,7 @@ body{
 </nav>
 <style>
 .habitats {
-    padding: 100px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -167,7 +159,7 @@ h1 {
 
 .card h2 {
     font-size: 20px;
-}
+    margin: 20px 0;}
 
 button {
     padding: 20px 30px;
