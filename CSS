@@ -30,7 +30,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .ui-card::before {
     content: '';
     position: absolute;
@@ -40,8 +39,6 @@ body {
     height: 5px;
     background: linear-gradient(to right, #daee27, #0328ce);
 }
-
-/* Header Text Alignments */
 .card-header {
     text-align: center;
     margin-bottom: 70px;
@@ -61,8 +58,6 @@ body {
     letter-spacing: 2px;
     margin-top: 6px;
 }
-
-/* Statistics Grid Section Layout */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -81,7 +76,7 @@ body {
 }
 
 .stat-number {
-    color: #1d95f8; /* Warm bright gold accent */
+    color: #1d95f8;
     font-size: 25px;
     font-weight: 600;
 }
@@ -92,7 +87,6 @@ body {
     font-weight: 600;
 }
 
-/* Section Title Settings */
 .section-title {
     color: #fffcfc;
     font-size: 14px;
@@ -101,22 +95,19 @@ body {
     margin-bottom: 18px;
 }
 
-/* ========================================================
-   SCROLL LINE CONTAINER (THE CORE FEATURE)
-   ======================================================== */
 .scroll-content {
-    max-height: 250px; /* Limits visible items to trigger scrolling action */
-    overflow-y: auto;  /* Directs vertical engine activation */
-    padding-right: 16px; /* Essential safety space to offset text from track line */
+    max-height: 250px; 
+    overflow-y: auto;  
+    padding-right: 16px; 
     
     /* Cross-browser Fallbacks for Firefox styling rules */
     scrollbar-width: thin;
     scrollbar-color: #0efad3 rgba(255, 255, 255, 0.05);
 }
 
-/* 1. Customizing Right Scrollbar Track Design (Webkit Browsers) */
+
 .scroll-content::-webkit-scrollbar {
-    width: 5px; /* Narrow profile sleek scroll track line width */
+    width: 5px; 
 }
 
 .scroll-content::-webkit-scrollbar-track {
@@ -142,7 +133,6 @@ body {
     direction: ltr; /* Restores standard content block flows left-to-right */
 }
 
-/* Individual Content Row Architecture */
 .feature-row {
     background-color: #2859a3;
     border-radius: 15px;
