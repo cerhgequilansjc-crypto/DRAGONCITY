@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon City</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dragon City Carousel</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
         body {
             min-height: 100vh;
             background-color: #0b0e14;
@@ -79,10 +76,96 @@
             background: linear-gradient(135deg, #2cc9e9, #324e96);
             border-color: #fff;
             box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }  
-    </style>
-    <nav class="navbar">
+            transform: translateY(-2px); 
+            }
+
+header {
+    background: #071b2b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.carousel {
+    width: 100%;
+    max-width: 1800px;
+    height: 670px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slider {
+    display: flex;
+    width: 600%;
+    height: 100%;
+
+    animation: slide 18s infinite;
+}
+
+.card {
+    width: 16.666%;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: fixed;
+}
+
+@keyframes slide {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    15% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-16.666%);
+    }
+
+    35% {
+        transform: translateX(-16.666%);
+    }
+
+    40% {
+        transform: translateX(-33.333%);
+    }
+
+    55% {
+        transform: translateX(-33.333%);
+    }
+
+    60% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-50%);
+    }
+
+    80% {
+        transform: translateX(-66.666%);
+    }
+
+    95% {
+        transform: translateX(-66.666%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+</style>
+</head>
+<nav class="navbar">
     <img
         class="logo"
         src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
@@ -110,78 +193,65 @@
         </li>
         <li>
             <a href="Decor.html">Decor</a>
-        </li>s
+        </li>
     </ul>
 </nav>
-    <div class="ui-card">
-        
-        <!-- Header Branding Section -->
-        <header class="card-header">
-            <h1 class="main-title">Dragon City</h1>
-            <p class="subtitle">SIMULATION & STRATEGY</p>
-        </header>
+<body>
 
-        <!-- Dynamic Statistics Section -->
-        <section class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">2,200+</span>
-                <span class="stat-label">Dragons</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">80M+</span>
-                <span class="stat-label">Players</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">6</span>
-                <span class="stat-label">Rarities</span>
-            </div>
-        </section>
-        <div class="scroll-content">
-            <h2 class="section-title">✨ ABOUT THE GAME ✨</h2>
-            
-            <div class="feature-row">
-                <div class="feature-icon">🌴</div>
-                <div class="feature-text">
-                    <h3>BUILD ISLANDS</h3>
-                    <p>Construct customized elemental habitats and farm food to sustain your growing dragon empire.</p>
-                </div>
-            </div>
+<div class="carousel">
 
-            <!-- Row 2: Breed & Collect -->
-            <div class="feature-row">
-                <div class="feature-icon">🧬</div>
-                <div class="feature-text">
-                    <h3>BREED & COLLECT</h3>
-                    <p>Cross-breed different elements to hatch unique hybrid variants and fill out your Dragon Book.</p>
-                </div>
-            </div>
+    <div class="slider">
 
-            <!-- Row 3: Strategic Battles -->
-            <div class="feature-row">
-                <div class="feature-icon">⚔️</div>
-                <div class="feature-text">
-                    <h3>STRATEGIC BATTLES</h3>
-                    <p>Engage in turn-based PvP arenas leveraging elemental strengths, weaknesses, and special active perks.</p>
-                </div>
-            </div>
-
-            <!-- Row 4: Strategic Battles Duplicate -->
-            <div class="feature-row">
-                <div class="feature-icon">🍓</div>
-                <div class="feature-text">
-                    <h3>FEED YOUR DRAGON</h3>
-                    <p> Feed the dragon and train to become stronger and unlocked other Abilities</p>
-                </div>
+        <!-- DRAGON 1 -->
+        <div class="card">
+            <img src="https://store-images.s-microsoft.com/image/apps.60940.14098991041572765.24a22c10-771e-440c-b9aa-1522a505d4ba.f8aff810-310f-4b23-9d5c-e6b43337bf06">
+            <div class="info">
+  
             </div>
         </div>
 
-        <!-- Footer Module -->
-        <footer class="card-footer">
-            <span class="developer-info">Developer: Socialpoint</span>
-            <span class="badge">Free to Play</span>
-        </footer>
+        <!-- DRAGON 2 -->
+        <div class="card">
+            <img src="https://articles-img.sftcdn.net/t_article_cover_xl/auto-mapping-folder/sites/3/2014/09/Dragon-City.jpg">
+            <div class="info">  
+            </div>
+        </div>
+
+        <!-- DRAGON 3 -->
+        <div class="card">
+            <img src="https://e.snmc.io/lk/o/x/1b7bb9bcfaa9205f7ba983ea10ea5a43/10185187">
+            <div class="info">
+            </div>
+        </div>
+
+        <!-- DRAGON 4 -->
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/M/MV5BNjNjYTZhYjUtNTdjZC00NTQwLWI1NTEtZmI0MTcwMTM1Y2Q1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+            <div class="info">
+
+            </div>
+        </div>
+
+        <!-- DRAGON 5 -->
+        <div class="card">
+            <img src="https://images6.alphacoders.com/112/thumb-1920-1124131.png">
+            <div class="info">
+            </div>
+        </div>
+
+        <!-- DRAGON 6 -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXU1i4FxpH3ewoSq9Dej7B1kZA8-s35I6lu6n0Kaj4ded2viVNnUYJ4k&s=10">
+            <div class="info">
+            </div>
+        </div>
 
     </div>
+
+</div>
+
+
+</button>
 
 </body>
 </html>
