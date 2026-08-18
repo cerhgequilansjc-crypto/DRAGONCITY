@@ -4,18 +4,17 @@
 <title>Dragon City Habitats</title>
 
 <style>
-        * {
+  * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-
         html {
             scroll-behavior: smooth;
         }
-body{
-      min-height: 100vh;
+        body {
+            min-height: 100vh;
             background-color: #0b0e14;
             background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
             background-position: center center;
@@ -25,46 +24,44 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 140px;
+            padding-top: 140px; 
             padding-bottom: 40px;
-}
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 72px;
-            background: rgba(1, 2, 2, 0.92);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(89, 108, 110, 0.753);
         }
-
+       .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      background: rgba(12, 16, 24, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
         .logo {
             position: absolute;
             left: 15px;
-            top: 15px;
-            width: 70px;
+            top: 10px;
+            width: 65px;
             height: 50px;
             object-fit: contain;
         }
-
         .nav-menu {
             display: flex;
             gap: 12px;
             list-style: none;
         }
-
         .nav-menu a {
             text-decoration: none;
             color: white;
             min-width: 120px;
             padding: 10px 20px;
             text-align: center;
-            border: 1px solid rgba(252, 249, 249, 0.3);
+            border: 1px solid rgba(255,255,255,0.3);
             border-radius: 30px;
             font-weight: bold;
             font-size: 0.9rem;
@@ -73,13 +70,12 @@ body{
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.03);
         }
-
         .nav-menu a:hover {
-            background: linear-gradient(135deg, #18a4c0, #324e96);
+            background: linear-gradient(135deg, #2cc9e9, #324e96);
             border-color: #fff;
             box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
             transform: translateY(-2px);
-        }   
+        }  
 
         </style>
 </head>
