@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dragon City Decor</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+ body {
+            min-height: 100vh;
+            background-color: #0b0e14;
+            background-image: url("https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/767299842_1655790449890491_4545257964467939193_n.jpg?stp=dst-jpg_tt6&cstp=mx2730x1374&ctp=s2048x2048&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGM4_41mJ3LzK9dCWrfPUarlU8g-dacNnOVTyD51pw2c567HQcAVzanhm9n9mFQUha7lkcVy3AcAFiBy9nT1CmH&_nc_ohc=iILIBuR1VC8Q7kNvwGtrVs6&_nc_oc=AdrgYi3_kR99PQsobkBZdY6h78Ep0LK1CM7NGzYD1GocTQRpbVBkbWe7cVYGbLGtliY&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7b2a8&oh=03_Q7cD6AELTnQGtor_LJXfN3qr1uAR7j50Bpd6J6AhI7E_hIDlQw&oe=6AA11DC7");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 140px; /* Space so content clears the fixed header */
+            padding-bottom: 40px;
+        }
+       .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      background: rgba(12, 16, 24, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+        .logo {
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            width: 65px;
+            height: 50px;
+            object-fit: contain;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            min-width: 120px;
+            padding: 10px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .nav-menu a:hover {
+            background: linear-gradient(135deg, #2cc9e9, #324e96);
+            border-color: #fff;
+            box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
+            transform: translateY(-2px); 
+            }
+
+
+.gold {
+    text-align: center;
+    color: #ffd84d;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.group {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.group h2 {
+   text-align: center;
+    font-size: 35px;
+    color: #2f3d3f;
+    border-bottom: 2px solid #3ed8ef;
+    padding-bottom: 8px;
+}
+.group h3 {
+    color: #fdfdff;
+    border-bottom: 2px solid #f8fafa;
+    padding-bottom: 8px;
+}
+
+.scroll {
+    display: flex;
+    gap: 15px;
+
+    overflow-x: auto;
+
+    padding: 15px;
+
+    scroll-behavior: smooth;
+}
+.card {
+    min-width: 210px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background: #1b5362;
+
+    border: 2px solid #3ed8ef;
+
+    border-radius: 15px;
+
+    transition: .3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 0 20px #3ed8ef;
+}
+.card img {
+   background: white;
+    width: 120px;
+    height: 140px;
+
+    object-fit: contain;
+}
+.card h3 {
+    margin: 8px;
+}
+
+.stock {
+    color: #7ff5ff;
+    margin: 8px;
+}
+
+.price {
+    color: #ffd84d;
+    font-weight: bold;
+    margin: 10px;
+}
+
+button {
+    padding: 9px 25px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #24c6dc;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffd84d;
+    color: black;
+}
+
+button:disabled {
+    background: #ff0000;
+    cursor: not-allowed;
+}
+
+.scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: #0c2933;
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: #3ed8ef;
+    border-radius: 10px;
+}
+
+</style>
+</head>
+<nav class="navbar">
+    <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
+        alt="Dragon City"
+    >
+    <ul class="nav-menu">
+
+       <li>
+            <a href="index.html">HOME</a>
+        </li>
+        <li>
+            <a href="About.html">ABOUT</a>
+        </li>
+        <li>
+            <a href="Gameplay.html">GAMEPLAY</a>
+        </li>
+        <li>
+            <a href="Dragons.html">DRAGONS</a>
+        </li>
+        <li>
+            <a href="Habitats.html">Habitats</a>
+        </li>
+        <li>
+            <a href="Building.html">Building</a>
+        </li>
+        <li>
+            <a href="Decor.html">Decor</a>
+        </li>
+    </ul>
+</nav>
+<body>
+
+<div class="gold">
+    💰 Gold: <span id="gold">10,000,000</span>
+</div>
+
+<div class="group">
+
+<h2>🧱 TILES</h2>
+
+<div class="scroll">
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5f/Stonetile.png/revision/latest/scale-to-width-down/100?cb=20130719002553">
+<h3>STONE</h3>
+<div class="stock">Stock: <span id="s1">99</span></div>
+<div class="price">💰 100</div>
+<button onclick="buy(100,'s1',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/9/97/Fancytile.png/revision/latest/scale-to-width-down/100?cb=20130719002608">
+<h3>FANCY</h3>
+<div class="stock">Stock: <span id="s2">99</span></div>
+<div class="price">💰 500</div>
+<button onclick="buy(500,'s2',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/4/4d/Luxurytile.png/revision/latest/scale-to-width-down/100?cb=20130719002620">
+<h3>LUXURY</h3>
+<div class="stock">Stock: <span id="s3">99</span></div>
+<div class="price">💰 1,000</div>
+<button onclick="buy(1000,'s3',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/1/1a/Supertile.png/revision/latest/scale-to-width-down/100?cb=20130719002635">
+<h3>SUPER</h3>
+<div class="stock">Stock: <span id="s3">99</span></div>
+<div class="price">💰 5,000</div>
+<button onclick="buy(5000,'s3',this)">BUY</button>
+</div>
+
+</div>
+</div>
+
+<div class="group">
+
+<h2>🌳 PLANTS</h2>
+
+<div class="scroll">
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/0/0a/Magic_Mushroom.png/revision/latest/scale-to-width-down/80?cb=20130718153814">
+<h3>MAGIC MUSHROOM</h3>
+<div class="stock">Stock: <span id="s4">8</span></div>
+<div class="price">💰 500</div>
+<button onclick="buy(500,'s4',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/d/dc/CatEye_Flower.png/revision/latest/scale-to-width-down/80?cb=20130718153836">
+<h3>CATEYE FLOWER</h3>
+<div class="stock">Stock: <span id="s5">10</span></div>
+<div class="price">💰 1,000</div>
+<button onclick="buy(1000,'s5',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5b/Willow_Tree.png/revision/latest/scale-to-width-down/120?cb=20130718153905">
+<h3>WILLOW TREE</h3>
+<div class="stock">Stock: <span id="s6">5</span></div>
+<div class="price">💰 3,000</div>
+<button onclick="buy(3000,'s6',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/7/78/Glowy_Flower.png/revision/latest/scale-to-width-down/80?cb=20130718153924">
+<h3>GLORY FLOWER</h3>
+<div class="stock">Stock: <span id="s12">8</span></div>
+<div class="price">💰 5,000</div>
+<button onclick="buy(5000,'s12',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/8/82/Purple_Snail_Plant.png/revision/latest/scale-to-width-down/80?cb=20130718153946">
+<h3>PURPLE SNAIL PLANT</h3>
+<div class="stock">Stock: <span id="s12">3</span></div>
+<div class="price">💰 1,0000</div>
+<button onclick="buy(10000,'s12',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/e/ea/Blue_Snail_Plant.png/revision/latest/scale-to-width-down/80?cb=20130718154006">
+<h3>BLUE SNAIL PLANT</h3>
+<div class="stock">Stock: <span id="s12">5</span></div>
+<div class="price">💰 25,000</div>
+<button onclick="buy(25000,'s12',this)">BUY</button>
+</div>
+
+</div>
+</div>
+
+<div class="group">
+
+<h2>🚩 FLAG</h2>
+
+<div class="scroll">
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/3/33/Dragon_Flag.png/revision/latest/scale-to-width-down/60?cb=20130718142037">
+<h3>DRAGON</h3>
+<div class="stock">Stock: <span id="s7">3</span></div>
+<div class="price">💰 250</div>
+<button onclick="buy(250,'s7',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/f/fb/Cloud_Flag.png/revision/latest/scale-to-width-down/60?cb=20130709110058">
+<h3>CLOUD</h3>
+<div class="stock">Stock: <span id="s8">1</span></div>
+<div class="price">💰 2,500</div>
+<button onclick="buy(25000,'s8',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/4/48/DragonHead_Flag.png/revision/latest/scale-to-width-down/60?cb=20130718142108">
+<h3>DRAGON HEAD</h3>
+<div class="stock">Stock: <span id="s9">3</span></div>
+<div class="price">💰 7,500</div>
+<button onclick="buy(7500,'s9',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/2/2b/Ying_Yang_Flag.png/revision/latest/scale-to-width-down/60?cb=20130718142126">
+<h3>YIN YANG</h3>
+<div class="stock">Stock: <span id="s9">3</span></div>
+<div class="price">💰 15,000</div>
+<button onclick="buy(7500,'s9',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/0/05/Egg_Flag.png/revision/latest/scale-to-width-down/60?cb=20130709110039">
+<h3>EGG</h3>
+<div class="stock">Stock: <span id="s9">1</span></div>
+<div class="price">💰 30,000</div>
+<button onclick="buy(30000,'s9',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/a/a0/Tower_flag.png/revision/latest/scale-to-width-down/60?cb=20130718145259">
+<h3>TOWER</h3>
+<div class="stock">Stock: <span id="s9">3</span></div>
+<div class="price">💰 50,000</div>
+<button onclick="buy(50000,'s9',this)">BUY</button>
+</div>
+
+</div>
+</div>
+
+<div class="group">
+
+<h2>🧩 OTHERS</h2>
+
+<div class="scroll">
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5e/Elf_Home.png/revision/latest/scale-to-width-down/100?cb=20130719003159">
+<h3>ELF HOUSE</h3>
+<div class="stock">Stock: <span id="s10">5</span></div>
+<div class="price">💰 1,500</div>
+<button onclick="buy(1500,'s10',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/7/72/Dragon_Statue.png/revision/latest/scale-to-width-down/80?cb=20130719003232">
+<h3>DRAGON STATUE</h3>
+<div class="stock">Stock: <span id="s11">6</span></div>
+<div class="price">💰15,000</div>
+<button onclick="buy(15000,'s11',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/6/6d/Old_Pond.png/revision/latest/scale-to-width-down/100?cb=20130719003259">
+<h3>OLD POND</h3>
+<div class="stock">Stock: <span id="s12">8</span></div>
+<div class="price">💰 5,000</div>
+<button onclick="buy(5000,'s12',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/4/4a/Dragon_Hedge.png/revision/latest/scale-to-width-down/100?cb=20130719003321">
+<h3>DRAGON HEDGE</h3>
+<div class="stock">Stock: <span id="s12">1</span></div>
+<div class="price">💰 500,000</div>
+<button onclick="buy(500000,'s12',this)">BUY</button>
+</div>
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/2/22/Little_Dragon_Statue.png/revision/latest/scale-to-width-down/100?cb=20130719003446">
+<h3>LITTLE DRAGON STATUE</h3>
+<div class="stock">Stock: <span id="s12">8</span></div>
+<div class="price">💰 20,000</div>
+<button onclick="buy(20000,'s12',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/6/60/Chinese_Arch.png/revision/latest/scale-to-width-down/100?cb=20130719003505">
+<h3>CHINESE ARCH</h3>
+<div class="stock">Stock: <span id="s12">10</span></div>
+<div class="price">💰 25,000</div>
+<button onclick="buy(25000,'s12',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/0/0c/Deus_Statue.png/revision/latest/scale-to-width-down/100?cb=20130719003530">
+<h3>DEUS STATUE</h3>
+<div class="stock">Stock: <span id="s12">8</span></div>
+<div class="price">💰 2,500,000</div>
+<button onclick="buy(2500000,'s12',this)">BUY</button>
+</div>
+
+<div class="card">
+<img src="https://static.wikia.nocookie.net/dragoncity/images/8/89/Fountain.png/revision/latest/scale-to-width-down/80?cb=20130719003552">
+<h3>FOUNTAIN</h3>
+<div class="stock">Stock: <span id="s12">2</span></div>
+<div class="price">💰 200,000</div>
+<button onclick="buy(200000,'s12',this)">BUY</button>
+</div>
+
+</div>
+</div>
+
+<script>
+  
+let gold = 10000000;
+
+function buy(price, stockID, button) {
+
+    let stock = document.getElementById(stockID);
+
+    if (gold < price) {
+        alert("❌ Not enough gold!");
+        return;
+    }
+
+    if (stock.innerText <= 0) {
+        alert("❌ Out of stock!");
+        return;
+    }
+
+    gold -= price;
+
+    stock.innerText--;
+
+    document.getElementById("gold").innerText =
+        gold.toLocaleString();
+
+    alert("✅ Decoration purchased!");
+
+    if (stock.innerText == 0) {
+
+        button.innerText = "OUT OF STOCK";
+
+        button.disabled = true;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
