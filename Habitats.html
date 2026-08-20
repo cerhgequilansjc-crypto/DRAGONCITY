@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dragon City Habitats</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dragon City</title>
 
 <style>
-  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
         body {
             min-height: 100vh;
             background-color: #0b0e14;
@@ -27,6 +27,7 @@
             padding-top: 140px; 
             padding-bottom: 40px;
         }
+
        .navbar {
       position: fixed;
       top: 0;
@@ -42,6 +43,7 @@
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
+
         .logo {
             position: absolute;
             left: 15px;
@@ -74,20 +76,276 @@
             background: linear-gradient(135deg, #2cc9e9, #324e96);
             border-color: #fff;
             box-shadow: 0 0 15px #25cfff, inset 0 0 10px rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }  
+            transform: translateY(-2px); 
+            }
 
-        </style>
-</head>
+        .habitats {
+            width: 100%;
+            max-width: 1300px;
+            padding: 20px;
+            text-align: center;
+        }
 
+        h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(37, 207, 255, 0.6), 0 4px 10px rgba(0,0,0,0.8);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .controls {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .arrow {
+            background: rgba(23, 44, 64, 0.8);
+            color: white;
+            border: 1px solid rgba(37, 207, 255, 0.4);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .arrow:hover {
+            background: #18a4c0;
+            box-shadow: 0 0 15px #25cfff;
+            transform: scale(1.05);
+        }
+
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            padding: 30px 10px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @keyframes levitate {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card {
+            flex: 0 0 calc(25% - 15px);
+            background: rgba(15, 20, 28, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px 15px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            animation: levitate 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:nth-child(even) { animation-delay: 1.5s; animation-duration: 4.5s; }
+        .card:nth-child(3n) { animation-delay: 0.8s; animation-duration: 3.8s; }
+
+        .card:hover {
+            animation-play-state: paused;
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(37, 207, 255, 0.6);
+            box-shadow: 0 15px 35px rgba(37, 207, 255, 0.25);
+        }
+
+        .card.is-selected {
+            border-color: #00ffaa !important;
+            box-shadow: 0 0 25px rgba(0, 255, 170, 0.45) !important;
+            background: rgba(10, 35, 30, 0.9);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .card img {
+            max-width: 85%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.7));
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        .stats-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 6px 8px;
+            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .stat-label {
+            color: #8fa3b8;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #25cfff;
+        }
+
+        .select {
+            background: linear-gradient(135deg, #2b3a4a, #172c40);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 90%;
+        }
+
+        .select:hover {
+            background: linear-gradient(135deg, #18a4c0, #324e96);
+            border-color: #ffffff;
+            box-shadow: 0 0 12px #25cfff;
+        }
+
+        .card.is-selected .select {
+            background: linear-gradient(135deg, #00b874, #006842);
+            border-color: #00ffaa;
+            color: #ffffff;
+        }
+        .selection-panel {
+            background: rgba(11, 14, 20, 0.9);
+            border: 1px solid rgba(37, 207, 255, 0.3);
+            border-radius: 20px;
+            padding: 15px 25px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .selection-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+
+        .selection-title {
+            font-size: 1rem;
+            color: #8fa3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .clear-btn {
+            background: rgba(255, 75, 75, 0.2);
+            border: 1px solid #ff4b4b;
+            color: #ff4b4b;
+            padding: 4px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .clear-btn:hover {
+            background: #ff4b4b;
+            color: white;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            width: 100%;
+            min-height: 35px;
+        }
+
+        .chip {
+            background: rgba(37, 207, 255, 0.15);
+            border: 1px solid #25cfff;
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chip-remove {
+            cursor: pointer;
+            color: #ff7676;
+            font-weight: bold;
+        }
+
+        @media(max-width: 1024px) {
+            .card { flex: 0 0 calc(33.333% - 14px); }
+        }
+        @media(max-width: 768px) {
+            .card { flex: 0 0 calc(50% - 10px); }
+            .nav-menu { display: none; }
+        }
+        @media(max-width: 480px) {
+            .card { flex: 0 0 100%; }
+        }
     </style>
+</head>
 <nav class="navbar">
-
     <img
         class="logo"
         src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Dragon_City_logo_2022.png"
-        alt="Dragon City"
-    >
+        alt="Dragon City">
 
     <ul class="nav-menu">
 
@@ -111,248 +369,289 @@
         </li>
         <li>
             <a href="Decor.html">Decor</a>
-        </li>s
-
+        </li>
     </ul>
-
-</nav>
-<style>
-.habitats {
-    padding: 10px;
-    text-align: center;
-}
-
-h1 {
-    color: #070707;
-}
-
-.slider {
-    width: 70%;
-    margin: auto;
-    overflow: hidden;
-}
-
-.cards {
-    display: flex;
-    gap: 20px;
-    transition: 0.27s;
-
-}
-
-.card {
-    min-width: 25%;
-    background: #fbfbfc;
-    border-radius: 15px;
-    padding-bottom: 30px;
-}
-
-.card img {
-    width: 60%;
-    height: 290px;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-}
-
-.card h2 {
-    font-size: 20px;
-    margin: 20px 0;}
-
-button {
-    padding: 20px 30px;
-    margin: 20px 10px;
-    border: 0;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.select {
-    background: #858080;
-}
-
-.arrow {
-    background: #172c40;
-    color: white;
-    border: 1px solid #aaa;
-}
-
-#message {
-    color: #0a0a0a;
-    margin-top: 20px;
-}
-
-@media(max-width: 700px) {
-    .card {
-        min-width: 30%;
-    }
-}
-
-@media(max-width: 500px) {
-    .card {
-        min-width: 30%;
-    }
-}
-</style>
-</head>
-
-<body>
-
+    </nav>
 <section class="habitats">
+    <h1>Dragon Habitats</h1>
 
-<h1>DRAGON HABITATS</h1>
+    <div class="controls">
+        <button class="arrow" onclick="prev()">❮</button>
+        <button class="arrow" onclick="next()">❯</button>
+    </div>
 
-<button class="arrow" onclick="prev()">❮</button>
-<button class="arrow" onclick="next()">❯</button>
+    <div class="slider">
+        <div class="cards" id="cards" style="transform: translateX(calc(0% + 0px));">
 
-<div class="slider">
+            <div class="card" data-name="Flame Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/1/1a/Flame_Habitat.png" alt="Flame Habitat">
+                </div>
+                <h2>🔥 Flame Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">102,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 1<pan></pan></span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Flame</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Flame Habitat')">SELECT</button>
+            </div>
 
-<div class="cards" id="cards">
+            <div class="card" data-name="Nature Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/5/5b/Nature_Habitat.png" alt="Nature Habitat">
+                </div>
+                <h2>🌿 Nature Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9<span></span></span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">122,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 10</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Nature</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Nature Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/1/1a/Flame_Habitat.png/revision/latest?cb=20220209153434">
-<h2>🔥 Fire elements Habitat</h2>
-<button class="select" onclick="selectHabitat('Fire Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Sea Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/3/3b/Sea_Habitat.png" alt="Sea Habitat">
+                </div>
+                <h2>💧 Sea Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">122,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 8</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Sea</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Sea Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5b/Nature_Habitat.png/revision/latest?cb=20220209154138">
-<h2>🌿 Nature Habitat</h2>
-<button class="select" onclick="selectHabitat('Nature Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Terra Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/8/8d/Terra_Habitat.png" alt="Terra Habitat">
+                </div>
+                <h2>⛰️ Terra Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">92,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 2</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Terra</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Terra Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/3/3b/Sea_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209153440">
-<h2>💧 Sea Habitat</h2>
-<button class="select" onclick="selectHabitat('Water Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Electric Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/c/c8/Electric_Habitat.png" alt="Electric Habitat">
+                </div>
+                <h2>⚡ Electric Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">132,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 12</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Electric</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Electric Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/8/8d/Terra_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154030">
-<h2>⛰️ Terra Habitat</h2>
-<button class="select" onclick="selectHabitat('Earth Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Ice Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/5/5a/Ice_Habitat.png" alt="Ice Habitat">
+                </div>
+                <h2>❄️ Ice Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">142,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 14</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Ice</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Ice Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/c/c8/Electric_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154225">
-<h2>⚡ Electric Habitat</h2>
-<button class="select" onclick="selectHabitat('Electric Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Metal Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/0/0b/Metal_Habitat.png" alt="Metal Habitat">
+                </div>
+                <h2>🔧 Metal Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">152,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 16</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Metal</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Metal Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5a/Ice_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154144">
-<h2>❄️ Ice Habitat</h2>
-<button class="select" onclick="selectHabitat('Ice Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Dark Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/f/fa/Dark_Habitat.png" alt="Dark Habitat">
+                </div>
+                <h2>🌙 Dark Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">162,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 18</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Dark</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Dark Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/0/0b/Metal_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209153449">
-<h2>🔧 Metal Habitat</h2>
-<button class="select" onclick="selectHabitat('Metal Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Light Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/4/4a/Light_Habitat.png" alt="Light Habitat">
+                </div>
+                <h2>☀️ Light Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">202,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 20</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Light</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Light Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/f/fa/Dark_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209153529">
-<h2>🌙 Dark Habitat</h2>
-<button class="select" onclick="selectHabitat('Dark Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="War Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/e/ef/War_Habitat.png" alt="War Habitat">
+                </div>
+                <h2>⚔️ War Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">262,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 22</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">War</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('War Habitat')">SELECT</button>
+            </div>
+              <div class="card" data-name="Pure Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/8/81/Pure_Habitat.png" alt="Pure Habitat">
+                </div>
+                <h2>⚜️ Pure Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">322,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 24</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Pure</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Pure Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/4/4a/Light_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154210">
-<h2>☀️ Light Habitat</h2>
-<button class="select" onclick="selectHabitat('Light Habitat')">SELECT</button>
-</div>
+            <div class="card" data-name="Legend Habitat">
+                <div class="card-img-wrapper">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/2/20/Legend_Habitat.png" alt="Legend Habitat">
+                </div>
+                <h2>♾️ Legend Habitat</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">Max Dragons</span><span class="stat-value">9</span></div>
+                    <div class="stat-item"><span class="stat-label">Max Gold</span><span class="stat-value">782,000</span></div>
+                    <div class="stat-item"><span class="stat-label">Unlock Level</span><span class="stat-value">Lvl 50</span></div>
+                    <div class="stat-item"><span class="stat-label">Element</span><span class="stat-value">Legend</span></div>
+                </div>
+                <button class="select" onclick="toggleHabitat('Legend Habitat')">SELECT</button>
+            </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/e/ef/War_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220209154241">
-<h2>⚔️ War Habitat</h2>
-<button class="select" onclick="selectHabitat('War Habitat')">SELECT</button>
-</div>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/8/81/Pure_Habitat.png/revision/latest/scale-to-width-down/150?cb=20130706085212">
-<h2>⚜️ Pure Habitat</h2>
-<button class="select" onclick="selectHabitat('Pure Habitat')">SELECT</button>
-</div>
-
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/2/20/Legend_Habitat.png/revision/latest/scale-to-width-down/150?cb=20130726033649">
-<h2>♾️ Legend Habitat</h2>
-<button class="select" onclick="selectHabitat('Legend  Habitat')">SELECT</button>
-</div>
-
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/3/31/Beauty_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417201741">
-<h2>💄 Beauty Habitat</h2>
-<button class="select" onclick="selectHabitat('Beauty Habitat')">SELECT</button>
-</div>
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/0/02/Magic_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417201811">
-<h2>✨ Magic Habitat</h2>
-<button class="select" onclick="selectHabitat('Magic Habitat')">SELECT</button>
-</div>
-
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/a/a3/Chaos_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417201959">
-<h2>☯️ Chaos Habitat</h2>
-<button class="select" onclick="selectHabitat('Chaos Habitat')">SELECT</button>
-</div>
-
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/5/5d/Soul_Habitat_2.png/revision/latest/scale-to-width-down/150?cb=20150417202122">
-<h2>👻 Soul Habitat</h2>
-<button class="select" onclick="selectHabitat('Soul Habitat')">SELECT</button>
-</div>
-
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/7/76/Primal_Habitat.png/revision/latest/scale-to-width-down/150?cb=20180515094435">
-<h2>☢️ Primal Habitat</h2>
-<button class="select" onclick="selectHabitat('Primal Habitat')">SELECT</button>
-</div>
-
-<div class="card">
-<img src="https://static.wikia.nocookie.net/dragoncity/images/1/16/Wind_Habitat.png/revision/latest/scale-to-width-down/150?cb=20220124033736">
-<h2>💨 Wind Habitat</h2>
-<button class="select" onclick="selectHabitat('Wind Habitat')">SELECT</button>
-</div>
-
-</div>
-</div>
-
-<p id="message">Selected: None</p>
-
+  
+    <div class="selection-panel">
+        <div class="selection-header">
+            <span class="selection-title">Selected Habitats (<span id="selected-count">0</span>)</span>
+            <button class="clear-btn" onclick="clearAllSelections()">Clear All</button>
+        </div>
+        <div class="chips-container" id="chips-container"><span style="color: #64748b; font-size: 0.9rem;">No habitats selected yet.</span></div>
+    </div>
 </section>
 
 <script>
+    let position = 0;
+    const selectedHabitats = new Set();
 
-let position = 0;
-
-function next() {
-    position += 1;
-
-    if(position > 15) {
-        position = 0
+    function getVisibleCardsCount() {
+        const width = window.innerWidth;
+        if (width <= 480) return 1;
+        if (width <= 768) return 2;
+        if (width <= 1024) return 3;
+        return 4;
     }
 
-    document.getElementById("cards").style.transform =
-    "translateX(-" + position * 25 + "%)";
-}
+    function updateSliderPosition() {
+        const cards = document.querySelectorAll(".card");
+        const visibleCards = getVisibleCardsCount();
+        const maxPosition = cards.length - visibleCards;
 
-function prev() {
-    position -= 1;
+        if (position > maxPosition) position = 0;
+        if (position < 0) position = maxPosition;
 
-    if(position < 0) {
-        position = 15;
+        const cardWidthPercent = 100 / visibleCards;
+        const gapOffset = position * 20; 
+        
+        document.getElementById("cards").style.transform = 
+            `translateX(calc(-${position * cardWidthPercent}% - ${gapOffset}px))`;
     }
 
-    document.getElementById("cards").style.transform =
-    "translateX(-" + position * 25 + "%)";
-}
+    function next() {
+        position += 1;
+        updateSliderPosition();
+    }
 
-function selectHabitat(name) {
-    document.getElementById("message").innerHTML =
-    "Selected: " + name;
-}
+    function prev() {
+        position -= 1;
+        updateSliderPosition();
+    }
 
+    function toggleHabitat(name) {
+        if (selectedHabitats.has(name)) {
+            selectedHabitats.delete(name);
+        } else {
+            selectedHabitats.add(name);
+        }
+        renderSelections();
+    }
+
+    function clearAllSelections() {
+        selectedHabitats.clear();
+        renderSelections();
+    }
+
+    function renderSelections() {
+        // Update Card UI States
+        document.querySelectorAll('.card').forEach(card => {
+            const name = card.getAttribute('data-name');
+            const button = card.querySelector('.select');
+            
+            if (selectedHabitats.has(name)) {
+                card.classList.add('is-selected');
+                button.innerText = "SELECTED ✓";
+            } else {
+                card.classList.remove('is-selected');
+                button.innerText = "SELECT";
+            }
+        });
+
+        // Update Summary Chips UI
+        const container = document.getElementById('chips-container');
+        document.getElementById('selected-count').innerText = selectedHabitats.size;
+
+        if (selectedHabitats.size === 0) {
+            container.innerHTML = `<span style="color: #64748b; font-size: 0.9rem;">No habitats selected yet.</span>`;
+            return;
+        }
+
+        container.innerHTML = '';
+        selectedHabitats.forEach(name => {
+            const chip = document.createElement('div');
+            chip.className = 'chip';
+            chip.innerHTML = `
+                ${name} 
+                <span class="chip-remove" onclick="toggleHabitat('${name}')">&times;</span>
+            `;
+            container.appendChild(chip);
+        });
+    }
+
+    window.addEventListener('resize', updateSliderPosition);
 </script>
 
-</body>
-</html>
+
+0</body></html>
